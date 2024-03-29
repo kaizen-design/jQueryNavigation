@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HotBot</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body class="h-100 p-5 bg-white d-flex flex-column text-black">
+    <header class="header d-flex justify-content-between pb-5">
+      <h1 class="brand mb-0 font-family-base">HotBot</h1>
+      <a href="#" class="basket position-relative">
+        <svg id="basket_svg" data-name="basket_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="69" viewBox="0 0 103 69">
+          <g id="basket_svg2" data-name="basket_svg">
+            <image id="basket_svg3" data-name="basket_svg" width="103" height="69" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAABFCAYAAABXJfjEAAAFSElEQVR4nO1d63ETMRDWZvgfd0CoAFMB1wHuAFMBLiF04A4IHbgEUwFOBdgdOBUso8naXLSfdDrfS7L1zWiG6B7W6tuXdJIgZjY5g4jmxpilMWZeE2NjCzPvs5YtZ3KIaG2M+a4uvOLFGLNi5id1JRNkSw4R2U7/qi5ofMuVoCzJISLrxn6qC358yNHF3amaPPAIWmnd2G9V+4qVqskA2ZFDRDNjzHun+tkY88DMlTHmkxBVx1y9KAPkaDmoo9fMfLT/YOadMWbnXP+snsgAOZLjdrwBhD04f/vcXdJ4l1uDrYUQkXVjH2vV34nIWs5W4ovr9hChySOLbI2IrCVUYhGVWMq9utGPgxB0KtuTG0wZSZIjQX8hpWpJRCwOMpNgidoMI0k3JEOOQ8gXdcOweBGinph5O7bsPkxOjrislcyPDWEhbWEtai1ETer6JiNHSHmMnIKpw3beXoK/kX+j0b+NSzMp8wvi1IuQtJ6MJEvOmEU6y851cWTZCYk29sy6tFUSioV0+j7y948ygareN3QZm5iVCIs6oV6sVSy7khFJ1iqSKHtPhd4zWPtQ5UCdsAUCuxq6lmmYKSy6irTo9dBKMxo5YgEhazmK2xpF4EhFaiLJuto5ej4bciKETIYU0PYma7dKtUTPJk2OBP0dEOhUtlO5rwtkqRpi0ho9lyQ5onE+YoKZT216Jilrisgwn9BzSZEjYwlffPH6aeDn7TuSs6yG+LntW6lUxUDEbFDDRSMfwf2Duose5PR5hh16ZlJypJN9fhma/JS+vCd5fQRBeSchp6GhML4ErKXu1qALvCWCVMUFjdyAxjFKM0WgpvQ02fTaI4+PICX/qOQELEBpTkMWd4pLWaTXLQjqZP2qokWj5qAxPmJCyYKtX6DfuAKC9l28gKpo0RgUzFW20kDMLkdrQSUgp1LWoclZg0aosUlAo3rNahIiaAHk5Etns1VFpIagBijXdEvE1GRGinuRe1MVET+Osq0NuM833XG1xHDY5T+i+0MleBH88BL86NHVioB5XzUxNfkrILvqp77JQRqxdO6ZeQKjsq4rJwiN/1opp6rwFY/VoOwMNapTSpkpOQ+gH7hNP7RZK422UbypI6LKs+ZskcMKyz4h+4F+gVeifsRAjAEtQD4UWQ2aMWgdCK/ceo7oXlRiLWepal5TRheudRw8990EPNZzLzvzuluOJ8Dv0b38P4U+jrlKJXHrQePCqOQoZgvIAqyU9C78ZuY4rbgR2M1cYMvKF7s2vCkOx7i1haq5YVd1IdBubtSvbxBDTuX8/Zz74QsTAHmabuRIauy6tGS2SOQCUeZnp7mu0isEyfG8AGlBQTPcfruXo2G8aCJHPZzS5qLMgPoNKf8ZbcnJcldyCvAotVL+OrzkeA5jyHJXckJw4467Jf8NvOR4WC3kdIOb5QYPrwiRM1M1+uUF7dBKuUPkIMsp5HSDmhGQ4QpEiByFMvjsjFaW8662/98NTopRIkJHaRXEAyUAS2A99uCKLUn+HQxMBZPgB8kUdkF6+J3rSYU3gUJOwkAf234wcwn8I4OIVOwvlpMwEDkqhS4YBW7GfLwDM81oZqBgQBAR+iq6uwPfGeKX7hT0BUTOhsRS/jgXDsyMRrMFPUPOnfuL+v9OzmF2vzO8J6IsTzHPEGhlzmsdh7dswK3qpfSy2NB3ZMt5q8j5GEmUZwsO5VPBIPAda3keZ9bJOW1FRw8UjAO7JvCcLZ/HOfKtpgL/SUPBSMSoMSbwhXPPvs9Shitw0b/36GL5ALSUD0QoFhVcDuudTkf32wOYdEw3xvwDB3PHcPPac80AAAAASUVORK5CYII="/>
+          </g>
+        </svg>
+        <span class="basket-counter d-flex justify-content-center align-items-center text-white">
+          <span class="font-family-base">2</span>
+        </span>
+      </a>
+    </header>  
+    <main class="flex-grow-1 d-flex flex-column justify-content-center py-5">
+      <div class="main-menu position-relative w-100">
+        <a href="#" class="prev-btn menu-slider-control disabled">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="35" viewBox="0 0 23 35">
+            <image id="_Группа_" data-name="&lt;Группа&gt;" width="23" height="35" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAjCAYAAAB/wZEbAAABCUlEQVRIibXXYQ2DMBAF4NcpQAIOhoRJQAISJmkSJgEJk4AEpuCWEso6rmV37dHk/WnJ90JJmuKICLXDOdcC6AHMRPTYOI+XBkADwGMUZQZwX9Yr4dcOjtNdSnbEOefhEcCVLX5Hr8aF8DJUuAYGMLG9zEWwx3Fe4g+qhf3zIrwU/ovXwId4LZzFLeAkbgUz3BL+wa3hDT8DDkf5KXDAxwSSyqSBA96tB3wK3GdIIbmEhlMK4lcwL9jvkWkBnzAsYBOWBWzCsoBNWBYwkD1QUcCwVEoLGJRLSQFDjqIsaFWXIiLyp+INwJst8jGor3OagqKLqLBAfp1TfgP5dU5Q8FxRX+R/BhoiwgdIV+NKBki4LQAAAABJRU5ErkJggg=="/>
+          </svg>
+        </a>
+        <div class="menu-slider d-flex justify-content-center align-items-center gap-5">
+          <a href="category.html" class="slider-item d-flex flex-column align-items-center flex-grow-1 gap-5 text-center active">
+            <h2 class="item-title mb-0 font-family-base">Еда в номер</h2>
+            <div class="item-image p-3">
+              <img src="src/img/menu-item-1.jpg" alt="Еда в номер" class="d-block rounded-circle" />
+            </div>
+          </a>
+          <a href="category.html" class="slider-item d-flex flex-column align-items-center flex-grow-1 gap-5 text-center">
+            <h2 class="item-title mb-0 font-family-base">Барная карта</h2>
+            <div class="item-image p-3">
+              <img src="src/img/menu-item-2.jpg" alt="Барная карта" class="d-block rounded-circle" />
+            </div>
+          </a>
+          <a href="category.html" class="slider-item d-flex flex-column align-items-center flex-grow-1 gap-5 text-center">
+            <h2 class="item-title mb-0 font-family-base">Спа-салон</h2>
+            <div class="item-image p-3">
+              <img src="src/img/menu-item-3.jpg" alt="Спа-салон" class="d-block rounded-circle" />
+            </div>
+          </a>
+          <a href="category.html" class="slider-item d-flex flex-column align-items-center flex-grow-1 gap-5 text-center">
+            <h2 class="item-title mb-0 font-family-base">Услуги</h2>
+            <div class="item-image p-3">
+              <img src="src/img/menu-item-4.jpg" alt="Услуги" class="d-block rounded-circle" />
+            </div>
+          </a>
+        </div>
+        <a href="#" class="next-btn menu-slider-control">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="35" viewBox="0 0 23 35">
+            <image id="_Группа_" data-name="&lt;Группа&gt;" width="23" height="35" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAjCAYAAAB/wZEbAAABEElEQVRIibWX0Q3CMAxELywAI3SEjsAojMBIjNAROkLZgBG6gZFRXQXsRKljTrofJ3on2amSgogA4ALgAWAFwIUJwMhrPRb4skFzr70BrJsBFncFnAAMKOsMYE4pjcUdFZ3KS7u6AgajHZYPt0gaX+u7ewb5ZMMDfo9OaIAuBAaoQmSAKkQGqEJkgAKqDR0BCmbZG6BAJXsCFKTmowEKUPN2qbwMmOVZAUrewNalYnn57LdAEeDWo+gCt3xEbnAV3gsuwiPAJjwKrOCR4C94NHiH/wOcw8PB1PCcc4Op4TknegK4EtGqVipqec65wKLRaIG7FdZA79nDX8w/A24wO8lUWSklHi4fy4mI+FLwC8Ab7w03i8HwNBQAAAAASUVORK5CYII="/>
+          </svg>
+        </a>
+      </div>
+    </main>
+    <footer class="footer d-flex justify-content-end">
+      <a href="#" class="back-btn d-block rounded-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="119.000000px" height="120.000000px" viewBox="0 0 119.000000 120.000000" preserveAspectRatio="xMidYMid meet">
+          <g transform="translate(0.000000,120.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <path d="M502 1190 c-136 -25 -243 -83 -338 -183 -99 -105 -151 -223 -161 -368 -23 -341 248 -629 592 -629 374 0 658 347 581 710 -46 221 -225 408 -437 459 -69 16 -177 21 -237 11z m-24 -332 c18 -18 15 -24 -24 -68 l-36 -40 148 0 c170 0 210 -8 261 -53 85 -75 85 -199 0 -274 -47 -41 -91 -53 -204 -53 -70 0 -95 4 -107 16 -40 39 -9 54 111 54 111 0 149 11 177 52 21 29 21 107 0 136 -31 45 -62 52 -230 52 l-156 0 36 -40 c20 -22 36 -44 36 -48 0 -13 -23 -32 -39 -32 -18 0 -161 139 -161 156 0 16 145 154 162 154 8 0 19 -5 26 -12z"/>
+          </g>
+          </svg>
+      </a>
+    </footer>
+  </body>
+</html>
