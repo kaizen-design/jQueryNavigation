@@ -312,13 +312,36 @@ ul {
   padding: 0 58px;
 }
 .product-preview-slider {
-
+  border: 5px solid transparent;
+  border-radius: 70px;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
+.product-preview-slider.active {
+  border-color: #000;
 }
 .product-preview-slider .slider-item {
 
 }
 .product-preview-slider .slider-item img {
+  border-radius: 60px;
+  object-fit: cover;
+}
+.product-preview-slider .item-price {
+  background: #000;
+  color: #fff;
+  font-size: 44px;
+  font-weight: bold;
+  padding: 10.5px 30px;
+  border-radius: 45px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
 
+.product-preview-slider .item-price span {
+  position: relative;
+  top: 3px;
 }
 .product-description {
 
