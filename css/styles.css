@@ -50,22 +50,6 @@ ul {
   list-style: none;
 }
 
-/* ::-webkit-scrollbar {
-  width: 18px;
-  border-radius: 1000px;
-  background-color: rgba(76, 76, 76, 0.6);
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 1000px;
-  background-color: #c7c7c7;
-  border: 1px solid #4d4d4d;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #c7c7c7;
-} */
-
 /* HEADER */
 .header {
   padding-left: 58px;
@@ -148,9 +132,8 @@ ul {
   position: absolute;
   transition: all 0.25s ease-in-out;
 }
-.menu-slider-control.disabled {
-  opacity: 0.3;
-  cursor: default;
+.menu-slider-control.swiper-button-disabled {
+  display: none;
 }
 .menu-slider-control svg g {
   transition: all 0.25s ease-in-out;
