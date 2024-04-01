@@ -72,7 +72,9 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
+  transition: all 0.25s ease-in-out;
 }
+.header .basket:hover .basket-counter,
 .header .basket:focus .basket-counter {
   background: #000;
 }

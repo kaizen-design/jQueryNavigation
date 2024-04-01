@@ -53,11 +53,13 @@ const APP = {
           }
           break;
         case 40: //DOWN arrow
+          e.preventDefault();
           $menuItems.forEach(($el) => $el.classList.remove('active'));
           $backBtn.focus();
           break;
         case 13: //OK button
-          window.location = $menuItems[activeIndex].getAttribute('href');
+          e.preventDefault();
+          window.location.href = $menuItems[activeIndex].getAttribute('href');
           break;
         case 10009: //RETURN button
           tizen.application.getCurrentApplication().exit();
@@ -71,6 +73,7 @@ const APP = {
     $backBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
         case 38: //UP arrow
+          e.preventDefault();
           $menuItems[activeIndex].classList.add('active');
           $menuItems[activeSlide].focus();
           break;
