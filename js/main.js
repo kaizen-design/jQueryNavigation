@@ -1,46 +1,41 @@
-var backEventListener = null;
+const APP = {
+  init: () => {
+    APP.initSlider(".product-preview-slider");
+  },
 
-var unregister = function() {
-    if ( backEventListener !== null ) {
-        document.removeEventListener( 'tizenhwkey', backEventListener );
-        backEventListener = null;
-        window.tizen.application.getCurrentApplication().exit();
-    }
-}
+  
 
-//Initialize function
-var init = function () {
-    // register once
-    if ( backEventListener !== null ) {
-        return;
+  initSlider: (selector) => {
+    const $el = document.querySelector(selector);
+    if ($el) {
+      new Swiper($el, APP.createSliderOptions(selector));
     }
-    
-    // TODO:: Do your initialization job
-    console.log("init() called");
-    
-    var backEvent = function(e) {
-        if ( e.keyName == "back" ) {
-            try {
-                if ( $.mobile.urlHistory.activeIndex <= 0 ) {
-                    // if first page, terminate app
-                    unregister();
-                } else {
-                    // move previous page
-                    $.mobile.urlHistory.activeIndex -= 1;
-                    $.mobile.urlHistory.clearForward();
-                    window.history.back();
-                }
-            } catch( ex ) {
-                unregister();
-            }
-        }
-    }
-    
-    // add eventListener for tizenhwkey (Back Button)
-    document.addEventListener( 'tizenhwkey', backEvent );
-    backEventListener = backEvent;
-	document.addEventListener( 'keydown', setFocusElement );
+  },
+
+  createSliderOptions: (selector) => {
+    return {
+      slidesPerView: 1,
+      loop: true,
+      spaceBetween: 30,
+      effect: "fade",
+      pagination: {
+        el: `${selector} .swiper-pagination`,
+        type: "bullets",
+        clickable: true
+      },
+      autoplay: {
+        delay: 5000,
+      },
+    };
+  },
+  
 };
 
-$(document).bind( 'pageinit', init );
-$(document).unload( unregister );
+if (
+  document.readyState === "complete" ||
+  (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  APP.init();
+} else {
+  document.addEventListener("DOMContentLoaded", APP.init);
+}
