@@ -525,6 +525,7 @@ ul {
   z-index: 10;
   border: none;
 }
+#productModal .back-btn:hover,
 #productModal .back-btn:focus {
   opacity: 1;
 }
