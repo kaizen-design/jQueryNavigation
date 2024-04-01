@@ -432,6 +432,18 @@ ul {
 .footer .back-btn:focus svg g {
   fill: #ff0000;
 }
+.footer .add-to-cart-btn {
+  font-size: 44px;
+  font-weight: bold;
+  height: 81px;
+  line-height: 81px;
+  padding: 0 40px;
+}
+.footer .add-to-cart-btn span {
+  white-space: nowrap;
+  position: relative;
+  top: 2px;
+}
 
 .amount-counter {
 
