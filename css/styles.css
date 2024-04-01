@@ -420,11 +420,6 @@ ul {
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border-color: #000;
 }
-.option-variant-list {
-  & > li {
-
-  }
-}
 .option-variant-list > li {
   
 }
@@ -460,6 +455,36 @@ ul {
   font-weight: normal;
   position: relative;
   top: 4px;
+}
+
+.timesheet-list {
+
+}
+.timesheet-list li {
+  
+}
+.timesheet-list .timesheet-label {
+  font-size: 42px;
+  font-weight: normal;
+}
+.radio-option-list {
+
+}
+.radio-option-list li {
+
+}
+.radio-option-list li .btn-check {
+  
+}
+.radio-option-list li .btn {
+  font-size: 42px;
+  font-weight: normal;
+  padding: 0px 13px;
+}
+.radio-option-list li .btn span {
+  position: relative;
+  font-weight: normal;
+  top: 3px;
 }
 
 /* FOOTER */
