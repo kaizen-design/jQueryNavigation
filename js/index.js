@@ -1,14 +1,10 @@
 const APP = {
   init: () => {
-    APP.initSlider(".product-preview-slider");
-    APP.initSlider(".product-modal-slider");
-    APP.initMainMenu();
-  },
-
-  initMainMenu: () => {
+    const $basket = document.querySelector('.basket');
     const $mainMenu = document.querySelector(".menu-slider");
+    const $backBtn = document.querySelector('.back-btn');
     
-    if (!$mainMenu) return;
+    //if (!$mainMenu) return;
     
     const swiper = new Swiper($mainMenu, {
       slidesPerView: 4,
@@ -27,12 +23,9 @@ const APP = {
     let activeSlide = 0;
 
     $mainMenu.addEventListener('keydown', function(e) {
-      console.log(e);
-      console.log(activeIndex, activeSlide)
     	switch(e.keyCode){
         case 37: //LEFT arrow
           e.preventDefault();
-          console.log('Arrow left click');
           if ($menuItems[activeIndex - 1]) {
             activeIndex -= 1;
             $menuItems.forEach(($el) => $el.classList.remove('active'));
@@ -44,11 +37,11 @@ const APP = {
           }
           break;
         case 38: //UP arrow
+          $menuItems.forEach(($el) => $el.classList.remove('active'));
+          $basket.focus();
           break;
         case 39: //RIGHT arrow
           e.preventDefault();
-          e.stopPropagation();
-          console.log('Arrow right click');
           if ($menuItems[activeIndex + 1]) {
             activeIndex += 1;
             $menuItems.forEach(($el) => $el.classList.remove('active'));
@@ -60,13 +53,10 @@ const APP = {
           }
           break;
         case 40: //DOWN arrow
-          console.log('Down right click');
-          const $backBtn = document.querySelector('.back-btn');
           $menuItems.forEach(($el) => $el.classList.remove('active'));
           $backBtn.focus();
           break;
         case 13: //OK button
-          //e.preventDefault();
           window.location = $menuItems[activeIndex].getAttribute('href');
           break;
         case 10009: //RETURN button
@@ -77,36 +67,40 @@ const APP = {
     		  break;
     	}
     });
-    
-  },
 
-  initSlider: (selector) => {
-    const $el = document.querySelector(selector);
-    if ($el) {
-      new Swiper($el, APP.createSliderOptions(selector));
-    }
-  },
+    $backBtn.addEventListener('keydown', function(e) {
+    	switch(e.keyCode){
+        case 38: //UP arrow
+          $menuItems[activeIndex].classList.add('active');
+          $menuItems[activeSlide].focus();
+          break;
+        case 13: //OK button
+          tizen.application.getCurrentApplication().exit();
+          break;
+        case 10009: //RETURN button
+          tizen.application.getCurrentApplication().exit();
+          break;
+        default:
+          console.log('Key code : ' + e.keyCode);
+    		  break;
+    	}
+    });
 
-  createSliderOptions: (selector) => {
-    return {
-      slidesPerView: 1,
-      loop: true,
-      spaceBetween: 30,
-      effect: "fade",
-      keyboard: {
-        enabled: true,
-      },
-      pagination: {
-        el: `${selector} .swiper-pagination`,
-        type: "bullets",
-        clickable: true
-      },
-      autoplay: {
-        delay: 5000,
-      },
-    };
-  },
-  
+    $basket.addEventListener('keydown', function(e) {
+    	switch(e.keyCode){
+        case 13: //OK button
+          console.log('Go to basket')
+          break;
+        case 40: //DOWN arrow
+          $menuItems[activeIndex].classList.add('active');
+          $menuItems[activeSlide].focus();
+          break;
+        default:
+          console.log('Key code : ' + e.keyCode);
+    		  break;
+    	}
+    });
+  }  
 };
 
 if (

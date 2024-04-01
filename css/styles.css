@@ -73,6 +73,9 @@ ul {
   top: 0;
   right: 0;
 }
+.header .basket:focus .basket-counter {
+  background: #000;
+}
 .header .basket .basket-counter span {
   position: relative;
   top: 2px;
