@@ -1,6 +1,7 @@
 const APP = {
   init: () => {
     APP.initSlider(".product-preview-slider");
+    APP.initSlider(".product-modal-slider");
   },
 
   
