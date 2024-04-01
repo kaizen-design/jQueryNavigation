@@ -18,6 +18,9 @@ const APP = {
       loop: true,
       spaceBetween: 30,
       effect: "fade",
+      keyboard: {
+        enabled: true,
+      },
       pagination: {
         el: `${selector} .swiper-pagination`,
         type: "bullets",

@@ -343,7 +343,7 @@ ul {
 .product-preview-slider .swiper-pagination {
   position: absolute;
   z-index: 10;
-  top: 30px !important;
+  top: 40px !important;
   bottom: auto !important;
 }
 .swiper-pagination .swiper-pagination-bullet {
