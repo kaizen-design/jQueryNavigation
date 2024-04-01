@@ -97,13 +97,11 @@ ul {
   
 }
 .menu-slider .slider-item.active .item-title,
-.menu-slider .slider-item:hover .item-title,
-.menu-slider .slider-item:focus .item-title {
+.menu-slider .slider-item:hover .item-title {
   font-weight: bold;
 }
 .menu-slider .slider-item.active .item-image,
-.menu-slider .slider-item:hover .item-image,
-.menu-slider .slider-item:focus .item-image {
+.menu-slider .slider-item:hover .item-image {
   border-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
 }
