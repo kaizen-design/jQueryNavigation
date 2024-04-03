@@ -119,7 +119,7 @@ const APP = {
                 }
                 activeOption += 1;
               } else {
-                $backBtn.focus();
+                $addToCartBtn.focus();
               }
               break;
             case 13: //OK button
