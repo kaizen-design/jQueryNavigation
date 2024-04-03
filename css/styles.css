@@ -349,7 +349,7 @@ ul {
   top: 1px;
 }
 .product-description {
-  
+  height: 675px;
 }
 .product-description::-webkit-scrollbar {
   width: 18px;
