@@ -88,6 +88,7 @@ const APP = {
             $productPreview.focus();
             break;
           case 38: //UP arrow
+            e.preventDefault();
             if ($productOptions[activeOption - 1]) {
               $productOptions[activeOption - 1].focus();
               activeOption -= 1;
@@ -150,55 +151,60 @@ const APP = {
     	}
     });
 
-    $plusBtn.addEventListener('keydown', function(e) {
-    	switch(e.keyCode){
-        case 37: //LEFT arrow
-          e.preventDefault();
-          if ($minusBtn) {
-            $minusBtn.focus();
-          }
-          break;
-        case 38: //UP arrow
-          $productPreview.classList.add('active');
-          $productPreview.focus();
-          break;
-        case 39: //RIGHT arrow
-          e.preventDefault();
-          $addToCartBtn.focus();
-          break;
-        case 13: //OK button
-          e.preventDefault();
-          const value = parseInt($quantity.textContent);
-          $quantity.innerText = value + 1;
-          break;
-        default:
-          console.log('Key code : ' + e.keyCode);
-    		  break;
-    	}
-    });
-
-    $minusBtn.addEventListener('keydown', function(e) {
-    	switch(e.keyCode){
-        case 38: //UP arrow
-          $productPreview.classList.add('active');
-          $productPreview.focus();
-          break;
-        case 39: //RIGHT arrow
-          e.preventDefault();
-          $plusBtn.focus();
-          break;
-        case 13: //OK button
-          e.preventDefault();
-          const value = parseInt($quantity.textContent);
-          if (value > 1) {
-            $quantity.innerText = value - 1;
-          }
-          break;
-        default:
-          console.log('Key code : ' + e.keyCode);
-    		  break;
-    	}
-    });
+    if ($plusBtn) {
+      $plusBtn.addEventListener('keydown', function(e) {
+        switch(e.keyCode){
+          case 37: //LEFT arrow
+            e.preventDefault();
+            if ($minusBtn) {
+              $minusBtn.focus();
+            }
+            break;
+          case 38: //UP arrow
+            $productPreview.classList.add('active');
+            $productPreview.focus();
+            break;
+          case 39: //RIGHT arrow
+            e.preventDefault();
+            $addToCartBtn.focus();
+            break;
+          case 13: //OK button
+            e.preventDefault();
+            const value = parseInt($quantity.textContent);
+            $quantity.innerText = value + 1;
+            break;
+          default:
+            console.log('Key code : ' + e.keyCode);
+            break;
+        }
+      });
+    }
+    
+    if ($minusBtn) {
+      $minusBtn.addEventListener('keydown', function(e) {
+        switch(e.keyCode){
+          case 38: //UP arrow
+            $productPreview.classList.add('active');
+            $productPreview.focus();
+            break;
+          case 39: //RIGHT arrow
+            e.preventDefault();
+            $plusBtn.focus();
+            break;
+          case 13: //OK button
+            e.preventDefault();
+            const value = parseInt($quantity.textContent);
+            if (value > 1) {
+              $quantity.innerText = value - 1;
+            }
+            break;
+          default:
+            console.log('Key code : ' + e.keyCode);
+            break;
+        }
+      });
+    }
+    
 
     $basket.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
