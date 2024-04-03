@@ -97,7 +97,6 @@ const APP = {
               e.preventDefault();
               if ($productOptions[activeOption - 1]) {
                 $productOptions[activeOption - 1].focus();
-                console.log($productOptions[activeOption - 1].getBoundingClientRect().top)
                 if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
                   $productDescription.scrollTop -= 300
                 }
