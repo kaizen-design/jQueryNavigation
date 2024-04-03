@@ -10,6 +10,7 @@ const APP = {
     const $minusBtn = document.getElementById('minusBtn');
     const $plusBtn = document.getElementById('plusBtn');
     const $quantity = document.getElementById('quantity');
+    const $productOptions = document.querySelectorAll('.product-description input');
     
     new Swiper($productPreview, {
       slidesPerView: 1,
@@ -48,19 +49,20 @@ const APP = {
     $productPreview.focus();
     $productPreview.classList.add('active');
 
+    let activeOption = 0;
+
     $productPreview.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
-        case 37: //LEFT arrow
-          e.preventDefault();
-          
-          break;
         case 38: //UP arrow
           $productPreview.classList.remove('active');
           $basket.focus();
           break;
         case 39: //RIGHT arrow
           e.preventDefault();
-          
+          if ($productOptions) {
+            $productPreview.classList.remove('active');
+            $productOptions[activeOption].focus();
+          }
           break;
         case 40: //DOWN arrow
           e.preventDefault();
@@ -76,6 +78,47 @@ const APP = {
     		  break;
     	}
     });
+
+    $productOptions.forEach((option) => {
+      option.addEventListener('keydown', function(e) {
+        switch(e.keyCode){
+          case 37: //LEFT arrow
+            e.preventDefault();
+            $productPreview.classList.add('active');
+            $productPreview.focus();
+            break;
+          case 38: //UP arrow
+            if ($productOptions[activeOption - 1]) {
+              $productOptions[activeOption - 1].focus();
+              activeOption -= 1;
+            } else {
+              $basket.focus();
+            }
+            break;
+          case 39: //RIGHT arrow
+            e.preventDefault();
+            
+            break;
+          case 40: //DOWN arrow
+            e.preventDefault();
+            if ($productOptions[activeOption + 1]) {
+              $productOptions[activeOption + 1].focus();
+              activeOption += 1;
+            } else {
+              $backBtn.focus();
+            }
+            break;
+          case 13: //OK button
+            e.preventDefault();
+            $productOptions[activeOption].click();
+            break;
+          default:
+            console.log('Key code : ' + e.keyCode);
+            break;
+        }
+      });
+    });
+    
 
     $addToCartBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
@@ -163,8 +206,11 @@ const APP = {
           console.log('Go to basket')
           break;
         case 40: //DOWN arrow
-          $productPreview.focus();
-          $productPreview.classList.add('active');
+          if ($productOptions) {
+            $productOptions[activeOption].focus();
+          }
+          //$productPreview.focus();
+          //$productPreview.classList.add('active');
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -212,8 +258,9 @@ const APP = {
           break;
         case 38: //UP arrow
           e.preventDefault();
-          //$products[activeProductIndex].classList.add('active');
-          //$products[activeProductSlide].focus();
+          if ($productOptions) {
+            $productOptions[activeOption].focus();
+          }
           break;
         case 13: //OK button
           e.preventDefault();
