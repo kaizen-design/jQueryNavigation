@@ -88,7 +88,7 @@ ul {
   padding: 0 60px;
 }
 .main-menu .menu-slider-control {
-  bottom: 177.5px;
+  bottom: 189px;
 }
 
 .menu-slider {
@@ -123,8 +123,8 @@ ul {
   transition: all 0.25s ease-in-out;
 }
 .menu-slider .slider-item .item-image img {
-  width: 348px;
-  height: 348px;
+  width: 371px;
+  height: 371px;
   object-fit: cover;
   max-width: 100%;
   height: auto;
@@ -171,6 +171,8 @@ ul {
   transition: all 0.25s ease-in-out;
   padding: 9.5px 34.5px;
   border-radius: 42.5px;
+  max-width: max-content;
+  width: auto;
 }
 .category-slider .slider-item span {
   position: relative;
@@ -181,8 +183,7 @@ ul {
   color: #d7d7d7;
 }
 .category-slider .slider-item.active,
-.category-slider .slider-item:hover,
-.category-slider .slider-item:focus {
+.category-slider .slider-item:hover {
   background: #000;
   color: #fff;
 }
@@ -265,30 +266,25 @@ ul {
   transition: all 0.25s ease-in-out;
 }
 .product-slider .slider-item.active,
-.product-slider .slider-item:hover,
-.product-slider .slider-item:focus {
+.product-slider .slider-item:hover {
   opacity: 1;
 }
 .product-slider .slider-item.active .item-image,
-.product-slider .slider-item:hover .item-image,
-.product-slider .slider-item:focus .item-image {
+.product-slider .slider-item:hover .item-image {
   border-color: #000;
   filter: grayscale(0);
 }
 .product-slider .slider-item.active .item-image .item-price,
-.product-slider .slider-item:hover .item-image .item-price,
-.product-slider .slider-item:focus .item-image .item-price {
+.product-slider .slider-item:hover .item-image .item-price {
   opacity: 1;
 }
 .product-slider .slider-item.active .item-title,
-.product-slider .slider-item:hover .item-title,
-.product-slider .slider-item:focus .item-title {
+.product-slider .slider-item:hover .item-title {
   font-weight: bold;
   color: #000;
 }
 .product-slider .slider-item.active .item-description,
-.product-slider .slider-item:hover .item-description,
-.product-slider .slider-item:focus .item-description {
+.product-slider .slider-item:hover .item-description {
   font-weight: 600;
   color: #000;
 }

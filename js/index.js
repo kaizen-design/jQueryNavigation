@@ -6,12 +6,12 @@ const APP = {
     
     //if (!$mainMenu) return;
     
-    const swiper = new Swiper($mainMenu, {
+    const $mainMenuSlider = new Swiper($mainMenu, {
       slidesPerView: 4,
-      spaceBetween: 48,
+      spaceBetween: 16,
       navigation: {
-          nextEl: `.main-menu .next-btn`,
-          prevEl: `.main-menu .prev-btn`,
+        nextEl: `.main-menu .next-btn`,
+        prevEl: `.main-menu .prev-btn`
       }
     });
     
@@ -19,8 +19,7 @@ const APP = {
     $menuItems[0].focus();
     $menuItems[0].classList.add('active');
 
-    let activeIndex = 0;
-    let activeSlide = 0;
+    let activeIndex = 0, activeSlide = 0;
 
     $mainMenu.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
@@ -31,7 +30,7 @@ const APP = {
             $menuItems.forEach(($el) => $el.classList.remove('active'));
             $menuItems[activeIndex].classList.add('active');
             if (activeIndex === activeSlide - 1) {
-              swiper.slidePrev();
+              $mainMenuSlider.slidePrev();
               activeSlide -= 1;
             }
           }
@@ -47,7 +46,7 @@ const APP = {
             $menuItems.forEach(($el) => $el.classList.remove('active'));
             $menuItems[activeIndex].classList.add('active');
             if (activeIndex > activeSlide + 3) {
-              swiper.slideNext();
+              $mainMenuSlider.slideNext();
               activeSlide += 1;
             }
           }
