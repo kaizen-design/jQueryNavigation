@@ -1,14 +1,17 @@
 const APP = {
   init: () => {
     const $basket = document.querySelector('.basket');
-    const $product = document.querySelector('.single-product');
     const $productPreview = document.querySelector('.product-preview-slider');
     const $modalEl = document.querySelector('#productModal');
     const $productModal = new bootstrap.Modal($modalEl);
     const $closeModalBtn = document.querySelector('#productModal .back-btn');
     const $backBtn = document.querySelector('footer .back-btn');
+    const $addToCartBtn = document.querySelector('.add-to-cart-btn');
+    const $minusBtn = document.getElementById('minusBtn');
+    const $plusBtn = document.getElementById('plusBtn');
+    const $quantity = document.getElementById('quantity');
     
-    const $productPreviewSlider = new Swiper($productPreview, {
+    new Swiper($productPreview, {
       slidesPerView: 1,
       loop: true,
       spaceBetween: 30,
@@ -23,7 +26,7 @@ const APP = {
       },
     });
 
-    const $productModalSlider = new Swiper(document.querySelector('.product-modal-slider'), {
+    new Swiper(document.querySelector('.product-modal-slider'), {
       slidesPerView: 1,
       loop: true,
       spaceBetween: 30,
@@ -45,17 +48,13 @@ const APP = {
     $productPreview.focus();
     $productPreview.classList.add('active');
 
-    let isModalOpen = false;
-
     $productPreview.addEventListener('keydown', function(e) {
-      console.log(e)
     	switch(e.keyCode){
         case 37: //LEFT arrow
           e.preventDefault();
           
           break;
         case 38: //UP arrow
-          //$categories.forEach(($el) => $el.classList.remove('active'));
           $productPreview.classList.remove('active');
           $basket.focus();
           break;
@@ -65,15 +64,92 @@ const APP = {
           break;
         case 40: //DOWN arrow
           e.preventDefault();
-          
+          $productPreview.classList.remove('active');
+          $addToCartBtn.focus();
           break;
         case 13: //OK button
           e.preventDefault();
           $productModal.show();
-          isModalOpen = true;
           break;
-        case 10009: //RETURN button
-          //tizen.application.getCurrentApplication().exit();
+        default:
+          console.log('Key code : ' + e.keyCode);
+    		  break;
+    	}
+    });
+
+    $addToCartBtn.addEventListener('keydown', function(e) {
+    	switch(e.keyCode){
+        case 37: //LEFT arrow
+          e.preventDefault();
+          if ($plusBtn) {
+            $plusBtn.focus();
+          }
+          break;
+        case 38: //UP arrow
+          $productPreview.classList.add('active');
+          $productPreview.focus();
+          break;
+        case 39: //RIGHT arrow
+          e.preventDefault();
+          $backBtn.focus();
+          break;
+        case 40: //DOWN arrow
+          e.preventDefault();
+          
+          break;
+        case 13: //OK button
+          e.preventDefault();
+          console.log('Added to cart')
+          break;
+        default:
+          console.log('Key code : ' + e.keyCode);
+    		  break;
+    	}
+    });
+
+    $plusBtn.addEventListener('keydown', function(e) {
+    	switch(e.keyCode){
+        case 37: //LEFT arrow
+          e.preventDefault();
+          if ($minusBtn) {
+            $minusBtn.focus();
+          }
+          break;
+        case 38: //UP arrow
+          $productPreview.classList.add('active');
+          $productPreview.focus();
+          break;
+        case 39: //RIGHT arrow
+          e.preventDefault();
+          $addToCartBtn.focus();
+          break;
+        case 13: //OK button
+          e.preventDefault();
+          const value = parseInt($quantity.textContent);
+          $quantity.innerText = value + 1;
+          break;
+        default:
+          console.log('Key code : ' + e.keyCode);
+    		  break;
+    	}
+    });
+
+    $minusBtn.addEventListener('keydown', function(e) {
+    	switch(e.keyCode){
+        case 38: //UP arrow
+          $productPreview.classList.add('active');
+          $productPreview.focus();
+          break;
+        case 39: //RIGHT arrow
+          e.preventDefault();
+          $plusBtn.focus();
+          break;
+        case 13: //OK button
+          e.preventDefault();
+          const value = parseInt($quantity.textContent);
+          if (value > 1) {
+            $quantity.innerText = value - 1;
+          }
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -87,7 +163,6 @@ const APP = {
           console.log('Go to basket')
           break;
         case 40: //DOWN arrow
-          //$categories[activeCategoryIndex].classList.add('active');
           $productPreview.focus();
           $productPreview.classList.add('active');
           break;
@@ -106,7 +181,6 @@ const APP = {
           $modalEl.focus();
           break;  
         case 40: //DOWN arrow
-          //$categories[activeCategoryIndex].classList.add('active');
           $closeModalBtn.focus();
           break;
         default:
@@ -130,6 +204,12 @@ const APP = {
 
     $backBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
+        case 37: //LEFT arrow
+          e.preventDefault();
+          if ($addToCartBtn) {
+            $addToCartBtn.focus();
+          }
+          break;
         case 38: //UP arrow
           e.preventDefault();
           //$products[activeProductIndex].classList.add('active');
@@ -138,9 +218,6 @@ const APP = {
         case 13: //OK button
           e.preventDefault();
           window.location.href = $backBtn.getAttribute('href');
-          break;
-        case 10009: //RETURN button
-          //tizen.application.getCurrentApplication().exit();
           break;
         default:
           console.log('Key code : ' + e.keyCode);
