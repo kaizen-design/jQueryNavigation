@@ -9,7 +9,7 @@
     <link href="./css/swiper-bundle.min.css" rel="stylesheet" />
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/product.js"></script>
   </head>
 
   <body class="h-100 p-5 bg-white d-flex flex-column text-black">
@@ -26,9 +26,9 @@
         </span>
       </a>
     </header>  
-    <main class="flex-grow-1 d-flex flex-column py-5 gap-5 overflow-hidden">
-      <div class="single-product d-flex gap-5 h-100">
-        <div class="product-preview-slider col h-100 p-2 active position-relative swiper" data-bs-toggle="modal" data-bs-target="#productModal">
+    <main class="flex-grow-1 d-flex flex-column py-5 overflow-hidden">
+      <div class="single-product d-flex h-100">
+        <div class="product-preview-slider col h-100 p-2 active position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
           <div class="swiper-wrapper">
             <div class="swiper-slide slider-item h-100">
               <img src="src/img/service.jpg" alt="Волейбольная площадка" class="img-fluid object-fit-cover w-100 h-100" />
@@ -36,26 +36,26 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <div class="product-description col h-100 overflow-y-auto d-flex flex-column gap-5">
-          <h2 class="product-title font-family-base pb-4 me-5">Доступная площадка. Оборудована раздевалками с душевыми. Места для 150 болельщиков</h2>
+        <div class="product-description col h-100 overflow-y-auto d-flex flex-column">
+          <h2 class="product-title font-family-base pb-4 me-5 mb-5">Доступная площадка. Оборудована раздевалками с душевыми. Места для 150 болельщиков</h2>
           <ul class="product-options-list d-flex flex-column list-unstyled mb-0 gap-5 me-5">
-            <li class="option-item d-flex flex-column gap-4">
-              <div class="option-head d-flex justify-content-between align-items-center">
+            <li class="option-item d-flex flex-column">
+              <div class="option-head d-flex justify-content-between align-items-center mb-4">
                 <span class="option-label font-family-base">Порядок аренды:</span>
                 <span class="option-badge font-family-base bg-black">Обязательно</span>
               </div>
               <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
                 <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center gap-4">
-                    <input class="form-check-input" type="radio" name="option_1_variant" value="300" id="option-1-variant-1" checked>
+                  <div class="form-check mb-0 d-flex align-items-center">
+                    <input class="form-check-input me-4" type="radio" name="option_1_variant" value="300" id="option-1-variant-1" checked>
                     <label class="form-check-label font-family-base" for="option-1-variant-1">
                       Без болельщиков
                     </label>
                   </div>
                 </li>
                 <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center gap-4">
-                    <input class="form-check-input" type="radio" name="option_1_variant" value="200" id="option-1-variant-2">
+                  <div class="form-check mb-0 d-flex align-items-center">
+                    <input class="form-check-input me-4" type="radio" name="option_1_variant" value="200" id="option-1-variant-2">
                     <label class="form-check-label font-family-base" for="option-1-variant-2">
                       За командой будет группа поддержки
                     </label>
@@ -63,27 +63,27 @@
                 </li>
               </ul>
             </li>
-            <li class="option-item d-flex flex-column gap-4">
-              <div class="option-head d-flex justify-content-between align-items-center">
+            <li class="option-item d-flex flex-column">
+              <div class="option-head d-flex justify-content-between align-items-center mb-4">
                 <span class="option-label font-family-base">Выберите дату и время:</span>
                 <span class="option-badge font-family-base bg-black">Обязательно</span>
               </div>
               <div class="form-group py-2">
                 <input type="date" class="form-control" name="date" value="" />
               </div>
-              <ul class="timesheet-list d-flex flex-column list-unstyled mb-0 gap-4">
-                <li class="d-flex flex-column gap-1">
-                  <span class="timesheet-label font-family-base">Утро:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0 gap-2">
-                    <li>
+              <ul class="timesheet-list d-flex flex-column list-unstyled mb-0">
+                <li class="d-flex flex-column mb-4">
+                  <span class="timesheet-label font-family-base mb-1">Утро:</span>
+                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option1"><span class="font-family-base">08:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option2"><span class="font-family-base">09:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option3"><span class="font-family-base">10:00</span></label>
                     </li>
@@ -93,26 +93,26 @@
                     </li>
                   </ul>
                 </li>
-                <li class="d-flex flex-column gap-1">
-                  <span class="timesheet-label font-family-base">День:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0 gap-2">
-                    <li>
+                <li class="d-flex flex-column mb-4">
+                  <span class="timesheet-label font-family-base mb-1">День:</span>
+                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option5"><span class="font-family-base">12:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option6" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option6"><span class="font-family-base">13:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option7" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option7"><span class="font-family-base">14:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option8" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option8"><span class="font-family-base">15:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option9" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option9"><span class="font-family-base">16:00</span></label>
                     </li>
@@ -122,18 +122,18 @@
                     </li>
                   </ul>
                 </li>
-                <li class="d-flex flex-column gap-1">
-                  <span class="timesheet-label font-family-base">Вечер:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0 gap-2">
-                    <li>
+                <li class="d-flex flex-column">
+                  <span class="timesheet-label font-family-base mb-1">Вечер:</span>
+                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option11" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option11"><span class="font-family-base">18:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option12" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option12"><span class="font-family-base">19:00</span></label>
                     </li>
-                    <li>
+                    <li class="mb-2">
                       <input type="radio" class="btn-check" name="options" id="option13" autocomplete="off">
                       <label class="btn btn-outline-dark rounded-pill" for="option13"><span class="font-family-base">20:00</span></label>
                     </li>

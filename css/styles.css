@@ -198,7 +198,10 @@ ul {
 }
 
 .product-slider {
-
+  visibility: hidden;
+}
+.product-slider.swiper-initialized {
+  visibility: visible;
 }
 .product-slider .slider-item {
   color: #000;

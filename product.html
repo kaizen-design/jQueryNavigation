@@ -9,7 +9,7 @@
     <link href="./css/swiper-bundle.min.css" rel="stylesheet" />
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/product.js"></script>
   </head>
 
   <body class="h-100 p-5 bg-white d-flex flex-column text-black">
@@ -26,9 +26,9 @@
         </span>
       </a>
     </header>  
-    <main class="flex-grow-1 d-flex flex-column py-5 gap-5 overflow-hidden">
-      <div class="single-product d-flex gap-5 h-100">
-        <div class="product-preview-slider col h-100 p-2 active position-relative swiper" data-bs-toggle="modal" data-bs-target="#productModal">
+    <main class="flex-grow-1 d-flex flex-column py-5 overflow-hidden">
+      <div class="single-product d-flex h-100">
+        <div class="product-preview-slider col h-100 p-2 active position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
           <div class="swiper-wrapper">
             <div class="swiper-slide slider-item h-100">
               <img src="src/img/product-slide.jpg" alt="Мясное ассорти" class="img-fluid object-fit-cover w-100 h-100" />
@@ -52,18 +52,18 @@
           <div class="swiper-pagination"></div>
           <span class="item-price"><span class="font-family-base">500 ₽</span></span>
         </div>
-        <div class="product-description col h-100 overflow-y-auto d-flex flex-column gap-5">
-          <h2 class="product-title font-family-base pb-4">Куриный рулет, ростбиф, язык говяжий, буженина, горчица и хрен. 120 г.</h2>
-          <ul class="product-options-list d-flex flex-column list-unstyled mb-0 gap-5">
-            <li class="option-item d-flex flex-column gap-4">
-              <div class="option-head d-flex justify-content-between align-items-center">
+        <div class="product-description col h-100 overflow-y-auto d-flex flex-column">
+          <h2 class="product-title font-family-base pb-4 mb-5">Куриный рулет, ростбиф, язык говяжий, буженина, горчица и хрен. 120 г.</h2>
+          <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
+            <li class="option-item d-flex flex-column">
+              <div class="option-head d-flex justify-content-between align-items-center mb-4">
                 <span class="option-label font-family-base">Добавить ингридиент:</span>
                 <span class="option-badge font-family-base">До 2-х опций</span>
               </div>
               <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
                 <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center gap-4">
-                    <input class="form-check-input" type="checkbox" name="option_1_variant" value="300" id="option-1-variant-1" checked>
+                  <div class="form-check mb-0 d-flex align-items-center">
+                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="300" id="option-1-variant-1" checked>
                     <label class="form-check-label font-family-base" for="option-1-variant-1">
                       Мясо
                     </label>
@@ -71,8 +71,8 @@
                   <span class="variant-price font-family-base">+300 ₽</span>
                 </li>
                 <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center gap-4">
-                    <input class="form-check-input" type="checkbox" name="option_1_variant" value="200" id="option-1-variant-2">
+                  <div class="form-check mb-0 d-flex align-items-center">
+                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="200" id="option-1-variant-2">
                     <label class="form-check-label font-family-base" for="option-1-variant-2">
                       Зелень
                     </label>
@@ -80,8 +80,8 @@
                   <span class="variant-price font-family-base">+200 ₽</span>
                 </li>
                 <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center gap-4">
-                    <input class="form-check-input" type="checkbox" name="option_1_variant" value="100" id="option-1-variant-3" checked>
+                  <div class="form-check mb-0 d-flex align-items-center">
+                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="100" id="option-1-variant-3" checked>
                     <label class="form-check-label font-family-base" for="option-1-variant-3">
                       Лук
                     </label>
@@ -95,15 +95,17 @@
       </div>
     </main>
     <footer class="footer d-flex justify-content-between">
-      <div class="d-flex gap-5 align-items-center">
-        <div class="amount-counter input-group gap-3">
+      <div class="d-flex align-items-center">
+        <div class="amount-counter input-group me-5">
           <button class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">-</span></button>
-          <span class="counter-value">
+          <span class="counter-value mx-3">
             <span class="font-family-base">2</span>
           </span>
           <button class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">+</span></button>
         </div>
-        <button class="add-to-cart-btn btn btn-dark rounded-pill d-flex align-items-center gap-4" type="button"><span class="font-family-base">Добавить</span><span class="font-family-base">1600 ₽</span></button>
+        <button class="add-to-cart-btn btn btn-dark rounded-pill d-flex align-items-center" type="button">
+          <span class="font-family-base me-4">Добавить</span><span class="font-family-base">1600 ₽</span>
+        </button>
       </div>
       <a href="category.html" class="back-btn d-block rounded-circle">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="119.000000px" height="120.000000px" viewBox="0 0 119.000000 120.000000" preserveAspectRatio="xMidYMid meet">
