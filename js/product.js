@@ -10,7 +10,12 @@ const APP = {
     const $minusBtn = document.getElementById('minusBtn');
     const $plusBtn = document.getElementById('plusBtn');
     const $quantity = document.getElementById('quantity');
+    const $productDescription = document.querySelector('.product-description');
     const $productOptions = document.querySelectorAll('.product-description input');
+
+    if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
+      Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
+    }
     
     new Swiper($productPreview, {
       slidesPerView: 1,
@@ -79,47 +84,56 @@ const APP = {
     	}
     });
 
-    $productOptions.forEach((option) => {
-      option.addEventListener('keydown', function(e) {
-        switch(e.keyCode){
-          case 37: //LEFT arrow
-            e.preventDefault();
-            $productPreview.classList.add('active');
-            $productPreview.focus();
-            break;
-          case 38: //UP arrow
-            e.preventDefault();
-            if ($productOptions[activeOption - 1]) {
-              $productOptions[activeOption - 1].focus();
-              activeOption -= 1;
-            } else {
-              $basket.focus();
-            }
-            break;
-          case 39: //RIGHT arrow
-            e.preventDefault();
-            
-            break;
-          case 40: //DOWN arrow
-            e.preventDefault();
-            if ($productOptions[activeOption + 1]) {
-              $productOptions[activeOption + 1].focus();
-              activeOption += 1;
-            } else {
-              $backBtn.focus();
-            }
-            break;
-          case 13: //OK button
-            e.preventDefault();
-            $productOptions[activeOption].click();
-            break;
-          default:
-            console.log('Key code : ' + e.keyCode);
-            break;
-        }
+    if ($productOptions) {
+      $productOptions.forEach((option) => {
+        option.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 37: //LEFT arrow
+              e.preventDefault();
+              $productPreview.classList.add('active');
+              $productPreview.focus();
+              break;
+            case 38: //UP arrow
+              e.preventDefault();
+              if ($productOptions[activeOption - 1]) {
+                $productOptions[activeOption - 1].focus();
+                console.log($productOptions[activeOption - 1].getBoundingClientRect().top)
+                if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                  $productDescription.scrollTop -= 300
+                }
+                activeOption -= 1;
+              } else {
+                $basket.focus();
+              }
+              break;
+            case 39: //RIGHT arrow
+              e.preventDefault();
+              
+              break;
+            case 40: //DOWN arrow
+              e.preventDefault();
+              
+              if ($productOptions[activeOption + 1]) {
+                $productOptions[activeOption + 1].focus();
+                if ($productOptions[activeOption + 1].getBoundingClientRect().top > $productDescription.offsetHeight) {
+                  $productDescription.scrollTop += 300
+                }
+                activeOption += 1;
+              } else {
+                $backBtn.focus();
+              }
+              break;
+            case 13: //OK button
+              e.preventDefault();
+              $productOptions[activeOption].click();
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
       });
-    });
-    
+    }
 
     $addToCartBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
