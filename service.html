@@ -17,7 +17,7 @@
   </head>
 
   <body class="h-100 p-5 bg-white d-flex flex-column text-black">
-    <header class="header d-flex justify-content-between">
+    <header class="header d-flex justify-content-between flex-shrink-0">
       <h1 class="brand mb-0 font-family-base">Волейбольная площадка</h1>
       <a href="#" class="basket position-relative">
         <svg id="basket_svg" data-name="basket_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="69" viewBox="0 0 103 69">
@@ -31,8 +31,8 @@
       </a>
     </header>  
     <main class="flex-grow-1 d-flex flex-column py-5 overflow-hidden">
-      <div class="single-product d-flex h-100">
-        <div class="product-preview-slider col h-100 p-2 active position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
+      <div class="single-product d-flex h-100 flex-grow-1">
+        <div class="product-preview-slider col flex-grow-1 p-2 active position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
           <div class="swiper-wrapper">
             <div class="swiper-slide slider-item h-100">
               <img src="src/img/service.jpg" alt="Волейбольная площадка" class="img-fluid object-fit-cover w-100 h-100" />
@@ -40,122 +40,124 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <div class="product-description col overflow-y-auto d-flex flex-column">
-          <h2 class="product-title font-family-base pb-4 mb-5">Доступная площадка. Оборудована раздевалками с душевыми. Места для 150 болельщиков</h2>
-          <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
-            <li class="option-item d-flex flex-column mb-5">
-              <div class="option-head d-flex justify-content-between align-items-center mb-4">
-                <span class="option-label font-family-base">Порядок аренды:</span>
-                <span class="option-badge font-family-base bg-black">Обязательно</span>
-              </div>
-              <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
-                <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center">
-                    <input class="form-check-input me-4" type="radio" name="option_1_variant" value="300" id="option-1-variant-1" checked>
-                    <label class="form-check-label font-family-base" for="option-1-variant-1">
-                      Без болельщиков
-                    </label>
-                  </div>
-                </li>
-                <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center">
-                    <input class="form-check-input me-4" type="radio" name="option_1_variant" value="200" id="option-1-variant-2">
-                    <label class="form-check-label font-family-base" for="option-1-variant-2">
-                      За командой будет группа поддержки
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li class="option-item d-flex flex-column">
-              <div class="option-head d-flex justify-content-between align-items-center mb-4">
-                <span class="option-label font-family-base">Выберите дату и время:</span>
-                <span class="option-badge font-family-base bg-black">Обязательно</span>
-              </div>
-              <div class="form-group py-2 mb-4">
-                <input type="text" class="form-control date-picker" name="date" value="" />
-              </div>
-              <ul class="timesheet-list d-flex flex-column list-unstyled mb-0">
-                <li class="d-flex flex-column mb-4">
-                  <span class="timesheet-label font-family-base mb-1">Утро:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option1"><span class="font-family-base">08:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option2"><span class="font-family-base">09:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option3"><span class="font-family-base">10:00</span></label>
-                    </li>
-                    <li>
-                      <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option4"><span class="font-family-base">11:00</span></label>
-                    </li>
-                  </ul>
-                </li>
-                <li class="d-flex flex-column mb-4">
-                  <span class="timesheet-label font-family-base mb-1">День:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option5"><span class="font-family-base">12:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option6" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option6"><span class="font-family-base">13:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option7" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option7"><span class="font-family-base">14:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option8" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option8"><span class="font-family-base">15:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option9" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option9"><span class="font-family-base">16:00</span></label>
-                    </li>
-                    <li>
-                      <input type="radio" class="btn-check" name="options" id="option10" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option10"><span class="font-family-base">17:00</span></label>
-                    </li>
-                  </ul>
-                </li>
-                <li class="d-flex flex-column">
-                  <span class="timesheet-label font-family-base mb-1">Вечер:</span>
-                  <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option11" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option11"><span class="font-family-base">18:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option12" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option12"><span class="font-family-base">19:00</span></label>
-                    </li>
-                    <li class="me-2 mb-2">
-                      <input type="radio" class="btn-check" name="options" id="option13" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option13"><span class="font-family-base">20:00</span></label>
-                    </li>
-                    <li>
-                      <input type="radio" class="btn-check" name="options" id="option14" autocomplete="off">
-                      <label class="btn btn-outline-dark rounded-pill" for="option14"><span class="font-family-base">21:00</span></label>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="product-description col flex-grow-1 overflow-y-auto">
+          <div class="h-100">
+            <h2 class="product-title font-family-base pb-4 mb-5">Доступная площадка. Оборудована раздевалками с душевыми. Места для 150 болельщиков</h2>
+            <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
+              <li class="option-item d-flex flex-column mb-5">
+                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+                  <span class="option-label font-family-base">Порядок аренды:</span>
+                  <span class="option-badge font-family-base bg-black">Обязательно</span>
+                </div>
+                <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
+                  <li class="d-flex justify-content-between align-items-center py-2">
+                    <div class="form-check mb-0 d-flex align-items-center">
+                      <input class="form-check-input me-4" type="radio" name="option_1_variant" value="300" id="option-1-variant-1" checked>
+                      <label class="form-check-label font-family-base" for="option-1-variant-1">
+                        Без болельщиков
+                      </label>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center py-2">
+                    <div class="form-check mb-0 d-flex align-items-center">
+                      <input class="form-check-input me-4" type="radio" name="option_1_variant" value="200" id="option-1-variant-2">
+                      <label class="form-check-label font-family-base" for="option-1-variant-2">
+                        За командой будет группа поддержки
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="option-item d-flex flex-column">
+                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+                  <span class="option-label font-family-base">Выберите дату и время:</span>
+                  <span class="option-badge font-family-base bg-black">Обязательно</span>
+                </div>
+                <div class="form-group py-2 mb-4">
+                  <input type="text" class="form-control date-picker" name="date" value="" />
+                </div>
+                <ul class="timesheet-list d-flex flex-column list-unstyled mb-0">
+                  <li class="d-flex flex-column mb-4">
+                    <span class="timesheet-label font-family-base mb-1">Утро:</span>
+                    <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option1"><span class="font-family-base">08:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option2"><span class="font-family-base">09:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option3"><span class="font-family-base">10:00</span></label>
+                      </li>
+                      <li>
+                        <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option4"><span class="font-family-base">11:00</span></label>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="d-flex flex-column mb-4">
+                    <span class="timesheet-label font-family-base mb-1">День:</span>
+                    <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option5"><span class="font-family-base">12:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option6" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option6"><span class="font-family-base">13:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option7" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option7"><span class="font-family-base">14:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option8" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option8"><span class="font-family-base">15:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option9" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option9"><span class="font-family-base">16:00</span></label>
+                      </li>
+                      <li>
+                        <input type="radio" class="btn-check" name="options" id="option10" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option10"><span class="font-family-base">17:00</span></label>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="d-flex flex-column">
+                    <span class="timesheet-label font-family-base mb-1">Вечер:</span>
+                    <ul class="radio-option-list d-flex flex-wrap list-unstyled mb-0">
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option11" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option11"><span class="font-family-base">18:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option12" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option12"><span class="font-family-base">19:00</span></label>
+                      </li>
+                      <li class="me-2 mb-2">
+                        <input type="radio" class="btn-check" name="options" id="option13" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option13"><span class="font-family-base">20:00</span></label>
+                      </li>
+                      <li>
+                        <input type="radio" class="btn-check" name="options" id="option14" autocomplete="off">
+                        <label class="btn btn-outline-dark rounded-pill" for="option14"><span class="font-family-base">21:00</span></label>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
-    <footer class="footer d-flex justify-content-between">
+    <footer class="footer d-flex justify-content-between flex-shrink-0">
       <div class="d-flex gap-5 align-items-center">
-        <button class="add-to-cart-btn btn btn-dark rounded-pill d-flex align-items-center gap-4" type="button"><span class="font-family-base">Добавить</span><span class="font-family-base">1600 ₽</span></button>
+        <button class="add-to-cart-btn btn btn-dark rounded-pill d-flex align-items-center" type="button"><span class="font-family-base me-4">Добавить</span><span class="font-family-base">1600 ₽</span></button>
       </div>
       <a href="category.html" class="back-btn d-block rounded-circle">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="119.000000px" height="120.000000px" viewBox="0 0 119.000000 120.000000" preserveAspectRatio="xMidYMid meet">

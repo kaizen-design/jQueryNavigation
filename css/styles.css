@@ -361,7 +361,7 @@ ul {
   top: 1px;
 }
 .product-description {
-  height: 675px;
+  /* height: 675px; */
   padding-left: 5px;
 }
 .product-description::-webkit-scrollbar {
@@ -523,7 +523,7 @@ ul {
 .amount-counter .btn:focus,
 .footer .add-to-cart-btn:focus {
   background: #ff0000;
-  box-shadow: none;
+  box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border: none;
 }
 .amount-counter .btn span {

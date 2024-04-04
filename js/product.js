@@ -56,6 +56,11 @@ const APP = {
         delay: 5000,
       },
     });
+
+    $modalEl.addEventListener('shown.bs.modal', event => {
+      $modalSlider.update();
+      $modalSlider.autoplay.start();      
+    })
     
     $productPreview.setAttribute('tabindex', '0');
     $productPreview.focus();
@@ -84,7 +89,7 @@ const APP = {
         case 13: //OK button
           e.preventDefault();
           $productModal.show();
-          $productModal.setAttribute('tabindex', '0');
+          //$productModal.setAttribute('tabindex', '0');
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -110,6 +115,7 @@ const APP = {
                 }
                 activeOption -= 1;
               } else {
+                $productDescription.scrollTop = 0;
                 $basket.focus();
               }
               break;
@@ -265,10 +271,14 @@ const APP = {
     	switch(e.keyCode){
         case 37: //LEFT arrow
           e.preventDefault();
+          console.log('Left arrow pressed');
+          $modalSlider.update();
           $modalSlider.slidePrev();
           break;
         case 39: //RIGHT arrow
           e.preventDefault();
+          console.log('Right arrow pressed')
+          $modalSlider.update();
           $modalSlider.slideNext();
           break;  
         case 13: //OK button

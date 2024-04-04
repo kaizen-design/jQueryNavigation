@@ -14,7 +14,7 @@
   </head>
 
   <body class="h-100 p-5 bg-white d-flex flex-column text-black">
-    <header class="header d-flex justify-content-between">
+    <header class="header d-flex justify-content-between flex-shrink-0">
       <h1 class="brand mb-0 font-family-base">Мясное ассорти</h1>
       <a href="#" class="basket position-relative">
         <svg id="basket_svg" data-name="basket_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="69" viewBox="0 0 103 69">
@@ -28,8 +28,8 @@
       </a>
     </header>  
     <main class="flex-grow-1 d-flex flex-column py-5 overflow-hidden">
-      <div class="single-product d-flex h-100">
-        <div class="product-preview-slider col h-100 p-2 position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
+      <div class="single-product d-flex flex-grow-1 h-100">
+        <div class="product-preview-slider col flex-grow-1 p-2 position-relative swiper me-5" data-bs-toggle="modal" data-bs-target="#productModal">
           <div class="swiper-wrapper">
             <div class="swiper-slide slider-item h-100">
               <img src="src/img/product-slide.jpg" alt="Мясное ассорти" class="img-fluid object-fit-cover w-100 h-100" />
@@ -53,49 +53,51 @@
           <div class="swiper-pagination"></div>
           <span class="item-price"><span class="font-family-base">500 ₽</span></span>
         </div>
-        <div class="product-description col overflow-y-auto d-flex flex-column">
-          <h2 class="product-title font-family-base pb-4 mb-5">Куриный рулет, ростбиф, язык говяжий, буженина, горчица и хрен. 120 г.</h2>
-          <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
-            <li class="option-item d-flex flex-column">
-              <div class="option-head d-flex justify-content-between align-items-center mb-4">
-                <span class="option-label font-family-base">Добавить ингридиент:</span>
-                <span class="option-badge font-family-base">До 2-х опций</span>
-              </div>
-              <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
-                <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center">
-                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="300" id="option-1-variant-1" checked>
-                    <label class="form-check-label font-family-base" for="option-1-variant-1">
-                      Мясо
-                    </label>
-                  </div>
-                  <span class="variant-price font-family-base">+300 ₽</span>
-                </li>
-                <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center">
-                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="200" id="option-1-variant-2">
-                    <label class="form-check-label font-family-base" for="option-1-variant-2">
-                      Зелень
-                    </label>
-                  </div>
-                  <span class="variant-price font-family-base">+200 ₽</span>
-                </li>
-                <li class="d-flex justify-content-between align-items-center py-2">
-                  <div class="form-check mb-0 d-flex align-items-center">
-                    <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="100" id="option-1-variant-3" checked>
-                    <label class="form-check-label font-family-base" for="option-1-variant-3">
-                      Лук
-                    </label>
-                  </div>
-                  <span class="variant-price font-family-base">+100 ₽</span>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="product-description col flex-grow-1 overflow-y-auto">
+          <div class="h-100">
+            <h2 class="product-title font-family-base pb-4 mb-5">Куриный рулет, ростбиф, язык говяжий, буженина, горчица и хрен. 120 г.</h2>
+            <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
+              <li class="option-item d-flex flex-column">
+                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+                  <span class="option-label font-family-base">Добавить ингридиент:</span>
+                  <span class="option-badge font-family-base">До 2-х опций</span>
+                </div>
+                <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
+                  <li class="d-flex justify-content-between align-items-center py-2">
+                    <div class="form-check mb-0 d-flex align-items-center">
+                      <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="300" id="option-1-variant-1" checked>
+                      <label class="form-check-label font-family-base" for="option-1-variant-1">
+                        Мясо
+                      </label>
+                    </div>
+                    <span class="variant-price font-family-base">+300 ₽</span>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center py-2">
+                    <div class="form-check mb-0 d-flex align-items-center">
+                      <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="200" id="option-1-variant-2">
+                      <label class="form-check-label font-family-base" for="option-1-variant-2">
+                        Зелень
+                      </label>
+                    </div>
+                    <span class="variant-price font-family-base">+200 ₽</span>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center py-2">
+                    <div class="form-check mb-0 d-flex align-items-center">
+                      <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="100" id="option-1-variant-3" checked>
+                      <label class="form-check-label font-family-base" for="option-1-variant-3">
+                        Лук
+                      </label>
+                    </div>
+                    <span class="variant-price font-family-base">+100 ₽</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>  
         </div>
       </div>
     </main>
-    <footer class="footer d-flex justify-content-between">
+    <footer class="footer d-flex justify-content-between flex-shrink-0">
       <div class="d-flex align-items-center">
         <div class="amount-counter input-group me-5">
           <button id="minusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">-</span></button>
