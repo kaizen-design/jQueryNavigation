@@ -119,7 +119,14 @@ const APP = {
               break;
             case 13: //OK button
               e.preventDefault();
-              $productOptions[activeOption].click();
+              if($productOptions[activeOption].checked == false) {
+                $productOptions[activeOption].checked = true; 
+              }
+              else {
+                if($productOptions[activeOption].checked == true) {
+                    $productOptions[activeOption].checked = false; 
+                }   
+              }
               break;
             default:
               console.log('Key code : ' + e.keyCode);
