@@ -11,25 +11,26 @@ const APP = {
     const $plusBtn = document.getElementById('plusBtn');
     const $quantity = document.getElementById('quantity');
     const $productDescription = document.querySelector('.product-description');
-    const $productOptions = document.querySelectorAll('.product-description input');
+    //const $productOptions = document.querySelectorAll('.product-description input:not([type=hidden])');
     const $datepicker = document.querySelector('.date-picker');
 
+    let $calendar;
+
     if ($datepicker) {
-      flatpickr($datepicker, {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "Y-m-d",
-        defaultDate: "today",
-        minDate: "today",
-        "locale": "ru"
-      });
+      $datepicker.value = new Date().toLocaleDateString();
+      /* $calendar = new AirDatepicker($datepicker, {
+        selectedDates: [new Date()],
+        inline: true
+      }) */
     }
+
+    const $productOptions = document.querySelectorAll('.product-description input:not([type=hidden])');
 
     if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
       Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
     }
     
-    new Swiper($productPreview, {
+    const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
       loop: true,
       spaceBetween: 30,
@@ -103,15 +104,20 @@ const APP = {
           switch(e.keyCode){
             case 37: //LEFT arrow
               e.preventDefault();
-              $productPreview.classList.add('active');
-              $productPreview.focus();
+              if ($productOptions[activeOption - 1] && $productOptions[activeOption - 1].classList.contains('btn-check')) {
+                $productOptions[activeOption - 1].focus();
+                activeOption -= 1;
+              } else {
+                $productPreview.classList.add('active');
+                $productPreview.focus();
+              }              
               break;
             case 38: //UP arrow
               e.preventDefault();
               if ($productOptions[activeOption - 1]) {
                 $productOptions[activeOption - 1].focus();
                 if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
-                  $productDescription.scrollTop -= 300
+                  $productDescription.scrollTop -= 500
                 }
                 activeOption -= 1;
               } else {
@@ -121,23 +127,32 @@ const APP = {
               break;
             case 39: //RIGHT arrow
               e.preventDefault();
-              
+              if ($productOptions[activeOption + 1] && $productOptions[activeOption + 1].classList.contains('btn-check')) {
+                $productOptions[activeOption + 1].focus();
+                activeOption += 1;
+              } else {
+                $productPreview.classList.add('active');
+                $productPreview.focus();
+              }
               break;
             case 40: //DOWN arrow
               e.preventDefault();
-              
               if ($productOptions[activeOption + 1]) {
-                $productOptions[activeOption + 1].focus();
+                $productOptions[activeOption + 1].focus({ preventScroll: true });
                 if ($productOptions[activeOption + 1].getBoundingClientRect().top > $productDescription.offsetHeight) {
-                  $productDescription.scrollTop += 300
+                  $productDescription.scrollTop += 500
                 }
                 activeOption += 1;
               } else {
                 $addToCartBtn.focus();
               }
               break;
-            case 13: //OK button
+            case 13 || 32: //OK || Space button
               e.preventDefault();
+              /* console.log('calendar')
+              if ($calendar && $productOptions[activeOption].classList.contains('date-picker')) {
+                $calendar.open();
+              } */
               if($productOptions[activeOption].checked == false) {
                 $productOptions[activeOption].checked = true; 
               }
@@ -147,17 +162,6 @@ const APP = {
                 }   
               }
               break;
-            case 32: //Space button
-              e.preventDefault();
-              if($productOptions[activeOption].checked == false) {
-                $productOptions[activeOption].checked = true; 
-              }
-              else {
-                if($productOptions[activeOption].checked == true) {
-                    $productOptions[activeOption].checked = false; 
-                }   
-              }
-              break;  
             default:
               console.log('Key code : ' + e.keyCode);
               break;
@@ -254,11 +258,13 @@ const APP = {
     $basket.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
         case 13: //OK button
+          e.preventDefault();
           console.log('Go to basket')
           break;
         case 40: //DOWN arrow
+          e.preventDefault();
           if ($productOptions) {
-            $productOptions[activeOption].focus();
+            $productOptions[activeOption].focus({ preventScroll: true });
           }
           break;
         default:
@@ -320,7 +326,7 @@ const APP = {
         case 38: //UP arrow
           e.preventDefault();
           if ($productOptions) {
-            $productOptions[activeOption].focus();
+            $productOptions[activeOption].focus({ preventScroll: true });
           }
           break;
         case 13: //OK button

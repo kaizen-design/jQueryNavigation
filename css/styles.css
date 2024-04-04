@@ -410,6 +410,8 @@ ul {
   border-radius: 40px;
   padding-left: 30px;
   padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 2px;
 }
 .option-item .form-control:focus {
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
@@ -468,8 +470,8 @@ ul {
 .radio-option-list li {
   position: relative;
 }
-.radio-option-list li .btn-check {
-  
+.radio-option-list li .btn-check:focus + .btn {
+  box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
 }
 .radio-option-list li .btn {
   font-size: 42px;
@@ -522,6 +524,11 @@ ul {
 }
 .amount-counter .btn:focus,
 .footer .add-to-cart-btn:focus {
+  background: #ff0000;
+  border: none;
+}
+.amount-counter .btn:active,
+.footer .add-to-cart-btn:active {
   background: #ff0000;
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border: none;
