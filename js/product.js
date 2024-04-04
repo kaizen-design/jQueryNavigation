@@ -14,7 +14,16 @@ const APP = {
     //const $productOptions = document.querySelectorAll('.product-description input:not([type=hidden])');
     const $datepicker = document.querySelector('.date-picker');
 
-    let $calendar;
+    const $blackButtons = document.querySelectorAll(".btn-dark");
+
+    $blackButtons.forEach((btn) => {
+      btn.addEventListener("keydown", (e) => {
+        if (e.keyCode === 13) {
+          e.target.classList.add("active");
+          setTimeout(() => e.target.classList.remove("active"), 250);
+        }
+      });
+    });
 
     if ($datepicker) {
       $datepicker.value = new Date().toLocaleDateString();

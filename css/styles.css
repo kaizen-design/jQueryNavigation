@@ -526,10 +526,11 @@ ul {
 .footer .add-to-cart-btn:focus {
   background: #ff0000;
   border: none;
+  box-shadow: none;
 }
-.amount-counter .btn:active,
-.footer .add-to-cart-btn:active {
-  background: #ff0000;
+.amount-counter .btn.active,
+.footer .add-to-cart-btn.active {
+  //background: #000;
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border: none;
 }
