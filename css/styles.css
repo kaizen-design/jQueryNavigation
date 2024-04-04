@@ -334,11 +334,23 @@ ul {
 .swiper-pagination .swiper-pagination-bullet {
   border: 5px solid #fff;
   width: 30px;
-  outline: 2px solid #000;
   height: 30px;
   background: #fff;
   opacity: 1;
   margin: 0 6px!important;
+  position: relative;
+}
+.swiper-pagination .swiper-pagination-bullet:before {
+  content: '';
+  width: 34px;
+  height: 34px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  background: #000;
+  z-index: -1;
 }
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #000;
@@ -350,6 +362,7 @@ ul {
 }
 .product-description {
   height: 675px;
+  padding-left: 5px;
 }
 .product-description::-webkit-scrollbar {
   width: 18px;
@@ -362,9 +375,6 @@ ul {
   background-color: #000;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
-  background-color: #c7c7c7;
-} */
 .product-description .product-title {
   font-size: 42px;
   font-weight: 600;
@@ -510,10 +520,16 @@ ul {
   padding: 0;
   line-height: 81px;
 }
+.amount-counter .btn:focus,
+.footer .add-to-cart-btn:focus {
+  background: #ff0000;
+  box-shadow: none;
+  border: none;
+}
 .amount-counter .btn span {
   line-height: 81px;
   position: relative;
-  top: -6px;
+  /* top: -6px; */
 }
 .amount-counter .counter-value {
   height: 81px;
@@ -529,7 +545,7 @@ ul {
 }
 .amount-counter .counter-value span {
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 .amount-counter .form-control:focus {
   box-shadow: none;
