@@ -252,7 +252,6 @@ const APP = {
         }
       });
     }
-    
 
     $basket.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
