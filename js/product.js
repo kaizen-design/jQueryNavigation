@@ -12,6 +12,18 @@ const APP = {
     const $quantity = document.getElementById('quantity');
     const $productDescription = document.querySelector('.product-description');
     const $productOptions = document.querySelectorAll('.product-description input');
+    const $datepicker = document.querySelector('.date-picker');
+
+    if ($datepicker) {
+      flatpickr($datepicker, {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+        defaultDate: "today",
+        minDate: "today",
+        "locale": "ru"
+      });
+    }
 
     if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
       Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
@@ -72,6 +84,7 @@ const APP = {
         case 13: //OK button
           e.preventDefault();
           $productModal.show();
+          $productModal.setAttribute('tabindex', '0');
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -128,6 +141,17 @@ const APP = {
                 }   
               }
               break;
+            case 32: //Space button
+              e.preventDefault();
+              if($productOptions[activeOption].checked == false) {
+                $productOptions[activeOption].checked = true; 
+              }
+              else {
+                if($productOptions[activeOption].checked == true) {
+                    $productOptions[activeOption].checked = false; 
+                }   
+              }
+              break;  
             default:
               console.log('Key code : ' + e.keyCode);
               break;
