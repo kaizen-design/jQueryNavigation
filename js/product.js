@@ -25,14 +25,13 @@ const APP = {
       pagination: {
         el: `.product-preview-slider .swiper-pagination`,
         type: "bullets",
-        //clickable: true
       },
       autoplay: {
         delay: 5000,
       },
     });
 
-    new Swiper(document.querySelector('.product-modal-slider'), {
+    const $modalSlider = new Swiper(document.querySelector('.product-modal-slider'), {
       slidesPerView: 1,
       loop: true,
       spaceBetween: 30,
@@ -40,10 +39,6 @@ const APP = {
       pagination: {
         el: `.product-modal-slider .swiper-pagination`,
         type: "bullets",
-        //clickable: true
-      },
-      keyboard: {
-        enabled: true,
       },
       autoplay: {
         delay: 5000,
@@ -228,8 +223,6 @@ const APP = {
           if ($productOptions) {
             $productOptions[activeOption].focus();
           }
-          //$productPreview.focus();
-          //$productPreview.classList.add('active');
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -239,6 +232,14 @@ const APP = {
 
     $modalEl.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
+        case 37: //LEFT arrow
+          e.preventDefault();
+          $modalSlider.slidePrev();
+          break;
+        case 39: //RIGHT arrow
+          e.preventDefault();
+          $modalSlider.slideNext();
+          break;  
         case 13: //OK button
           break;
         case 38: //UP arrow
