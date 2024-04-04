@@ -10,34 +10,12 @@ const APP = {
     const $minusBtn = document.getElementById('minusBtn');
     const $plusBtn = document.getElementById('plusBtn');
     const $quantity = document.getElementById('quantity');
-    const $productDescription = document.querySelector('.product-description');
-    //const $productOptions = document.querySelectorAll('.product-description input:not([type=hidden])');
+    const $productDescription = document.querySelector('.product-description');   
+    const $productOptions = document.querySelectorAll('.product-description input'); 
     const $datepicker = document.querySelector('.date-picker');
+    const $actionButtons = document.querySelectorAll(".btn-dark");
 
-    const $blackButtons = document.querySelectorAll(".btn-dark");
-
-    $blackButtons.forEach((btn) => {
-      btn.addEventListener("keydown", (e) => {
-        if (e.keyCode === 13) {
-          e.target.classList.add("active");
-          setTimeout(() => e.target.classList.remove("active"), 250);
-        }
-      });
-    });
-
-    if ($datepicker) {
-      $datepicker.value = new Date().toLocaleDateString();
-      /* $calendar = new AirDatepicker($datepicker, {
-        selectedDates: [new Date()],
-        inline: true
-      }) */
-    }
-
-    const $productOptions = document.querySelectorAll('.product-description input:not([type=hidden])');
-
-    if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
-      Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
-    }
+    let activeOption = 0;
     
     const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
@@ -66,17 +44,29 @@ const APP = {
         delay: 5000,
       },
     });
+    $modalSlider.autoplay.stop(); 
+
+    if ($datepicker) {
+      $datepicker.value = new Date().toLocaleDateString();
+      /* $calendar = new AirDatepicker($datepicker, {
+        selectedDates: [new Date()],
+        inline: true
+      }) */
+    }
+
+    if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
+      Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
+    }
 
     $modalEl.addEventListener('shown.bs.modal', event => {
+      $productSlider.autoplay.stop();
       $modalSlider.update();
-      $modalSlider.autoplay.start();      
-    })
+      $modalSlider.autoplay.start(); 
+    });
     
     $productPreview.setAttribute('tabindex', '0');
     $productPreview.focus();
-    $productPreview.classList.add('active');
-
-    let activeOption = 0;
+    $productPreview.classList.add('active');    
 
     $productPreview.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
@@ -317,6 +307,7 @@ const APP = {
           e.preventDefault();
           $productModal.hide();
           $productPreview.focus();
+          $productSlider.autoplay.start();
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -346,6 +337,15 @@ const APP = {
           console.log('Key code : ' + e.keyCode);
     		  break;
     	}
+    });
+
+    $actionButtons.forEach(($btn) => {
+      $btn.addEventListener("keydown", (e) => {
+        if (e.keyCode === 13) {
+          e.target.classList.add("active");
+          setTimeout(() => e.target.classList.remove("active"), 250);
+        }
+      });
     });
 
   },
