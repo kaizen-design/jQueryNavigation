@@ -112,7 +112,6 @@ const APP = {
         option.addEventListener('keydown', function(e) {
           switch(e.keyCode){
             case 37: //LEFT arrow
-            console.log($productOptions[activeOption].parentElement?.previousElementSibling)
               e.preventDefault();
               if ($productOptions[activeOption - 1] && $productOptions[activeOption - 1].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.previousElementSibling) {
                 $productOptions[activeOption - 1].focus();
@@ -125,11 +124,20 @@ const APP = {
             case 38: //UP arrow
               e.preventDefault();
               if ($productOptions[activeOption - 1]) {
-                $productOptions[activeOption - 1].focus();
-                if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
-                  $productDescription.scrollTop -= 500
+                if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling) {
+                  activeOption -= $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length;
+                    console.log($productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length)
+                    $productOptions[activeOption].focus();
+                    if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                      $productDescription.scrollTop -= 500
+                  }
+                } else {
+                  $productOptions[activeOption - 1].focus();
+                  if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                    $productDescription.scrollTop -= 500
+                  }
+                  activeOption -= 1;
                 }
-                activeOption -= 1;
               } else {
                 $productDescription.scrollTop = 0;
                 $basket.focus();
@@ -147,12 +155,23 @@ const APP = {
               break;
             case 40: //DOWN arrow
               e.preventDefault();
+              
               if ($productOptions[activeOption + 1]) {
-                $productOptions[activeOption + 1].focus({ preventScroll: true });
-                if ($productOptions[activeOption + 1].getBoundingClientRect().top > $productDescription.offsetHeight) {
-                  $productDescription.scrollTop += 500
+                
+                if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.nextElementSibling) {
+                  activeOption += $productOptions[activeOption].parentElement?.parentElement?.parentElement?.querySelectorAll('li')?.length;
+                    console.log($productOptions[activeOption].parentElement?.parentElement?.parentElement?.querySelectorAll('li')?.length)
+                    $productOptions[activeOption].focus();
+                    if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                      $productDescription.scrollTop -= 500
+                  }
+                } else {
+                  $productOptions[activeOption + 1].focus();
+                  if ($productOptions[activeOption + 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                    $productDescription.scrollTop += 500
+                  }
+                  activeOption += 1;
                 }
-                activeOption += 1;
               } else {
                 $addToCartBtn.focus();
               }
