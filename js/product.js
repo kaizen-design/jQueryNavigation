@@ -112,8 +112,9 @@ const APP = {
         option.addEventListener('keydown', function(e) {
           switch(e.keyCode){
             case 37: //LEFT arrow
+            console.log($productOptions[activeOption].parentElement?.previousElementSibling)
               e.preventDefault();
-              if ($productOptions[activeOption - 1] && $productOptions[activeOption - 1].classList.contains('btn-check')) {
+              if ($productOptions[activeOption - 1] && $productOptions[activeOption - 1].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.previousElementSibling) {
                 $productOptions[activeOption - 1].focus();
                 activeOption -= 1;
               } else {
