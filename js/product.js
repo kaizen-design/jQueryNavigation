@@ -124,7 +124,6 @@ const APP = {
             case 38: //UP arrow
               e.preventDefault();
               if ($productOptions[activeOption - 1]) {
-                
                 if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling) {
                   const prevListItems = $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length;
                   let prev_siblings = [];
@@ -139,11 +138,25 @@ const APP = {
                     $productDescription.scrollTop -= 500
                   }
                 } else {
-                  $productOptions[activeOption - 1].focus();
-                  if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
-                    $productDescription.scrollTop -= 500
+                  if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.querySelectorAll('li')?.length) {
+                    let prev_siblings = [];
+                    let prev_elem = $productOptions[activeOption].parentElement?.previousElementSibling;
+                    while(prev_elem) {
+                      prev_siblings.push(prev_elem); 
+                      prev_elem = prev_elem.previousElementSibling;
+                    }
+                    activeOption -= prev_siblings.length + 1;
+                    $productOptions[activeOption].focus();
+                    if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                      $productDescription.scrollTop -= 500
+                    }
+                  } else {
+                    $productOptions[activeOption - 1].focus();
+                    if ($productOptions[activeOption - 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                      $productDescription.scrollTop -= 500
+                    }
+                    activeOption -= 1;
                   }
-                  activeOption -= 1;
                 }
               } else {
                 $productDescription.scrollTop = 0;
