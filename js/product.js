@@ -156,7 +156,7 @@ const APP = {
                 $addToCartBtn.focus();
               }
               break;
-            case 13 || 32: //OK || Space button
+            case 13: //OK
               e.preventDefault();
               if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
                 $datepickerModal.show();
@@ -170,6 +170,20 @@ const APP = {
                 }   
               }
               break;
+            case 32: //Space button
+              e.preventDefault();
+              if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
+                $datepickerModal.show();
+              }
+              if($productOptions[activeOption].checked == false) {
+                $productOptions[activeOption].checked = true; 
+              }
+              else {
+                if($productOptions[activeOption].checked == true) {
+                  $productOptions[activeOption].checked = false; 
+                }   
+              }
+              break;  
             default:
               console.log('Key code : ' + e.keyCode);
               break;

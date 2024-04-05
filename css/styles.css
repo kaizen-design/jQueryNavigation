@@ -604,7 +604,7 @@ ul {
   box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);
 }
 #datepickerModal .air-datepicker {
-  --adp-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --adp-font-family: TTCommons, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --adp-font-size: 42px;
   --adp-width: 500px;
   --adp-z-index: 100;
@@ -670,6 +670,17 @@ ul {
   --adp-mobile-day-cell-height: 38px;
   --adp-mobile-month-cell-height: 48px;
   --adp-mobile-year-cell-height: 64px
+}
+#datepickerModal .air-datepicker-body--day-names {
+  display: flex;
+}
+#datepickerModal .air-datepicker-body--cells {
+  display: flex;
+  flex-wrap: wrap;
+}
+#datepickerModal .air-datepicker-cell {
+  flex-grow: 1;
+  width: 14.28%;
 }
 
 .modal-backdrop {
