@@ -30,6 +30,7 @@ const APP = {
     
     $categories[0].focus();
     $categories[0].classList.add('active');
+    $categories[0].classList.add('focus');
 
     let activeCategoryIndex = 0, 
         activeCategorySlide = 0;
@@ -44,10 +45,13 @@ const APP = {
         case 37: //LEFT arrow
           e.preventDefault();
           if ($categories[activeCategoryIndex - 1]) {
-            
             activeCategoryIndex -= 1;
-            $categories.forEach(($el) => $el.classList.remove('active'));
+            $categories.forEach(($el) => {
+              $el.classList.remove('active');
+              $el.classList.remove('focus')
+            });
             $categories[activeCategoryIndex].classList.add('active');
+            $categories[activeCategoryIndex].classList.add('focus');
             if (activeCategoryIndex === activeCategorySlide - 1) {
               $categoryMenuSlider.slidePrev();
               activeCategorySlide -= 1;
@@ -61,10 +65,13 @@ const APP = {
         case 39: //RIGHT arrow
           e.preventDefault();
           if ($categories[activeCategoryIndex + 1]) {
-            
             activeCategoryIndex += 1;
-            $categories.forEach(($el) => $el.classList.remove('active'));
+            $categories.forEach(($el) => {
+              $el.classList.remove('active');
+              $el.classList.remove('focus')
+            });
             $categories[activeCategoryIndex].classList.add('active');
+            $categories[activeCategoryIndex].classList.add('focus');
             if (activeCategoryIndex > activeCategorySlide + 2) {
               $categoryMenuSlider.slideNext();
               activeCategorySlide += 1;
@@ -74,12 +81,13 @@ const APP = {
         case 40: //DOWN arrow
           e.preventDefault();
           activeProductIndex = 0;
-          //$categories.forEach(($el) => $el.classList.remove('active'));
+          $categories[activeCategoryIndex].classList.remove('focus');
           $products[activeProductIndex].classList.add('active');
           $products[activeProductIndex].focus();
           break;
         case 13: //OK button
           e.preventDefault();
+          $categories[activeCategoryIndex].classList.remove('focus');
           $products[activeProductIndex].classList.add('active');
           $products[activeProductIndex].focus();
           //window.location.href = $categories[activeIndex].getAttribute('href');
@@ -110,6 +118,7 @@ const APP = {
         case 38: //UP arrow
           $products.forEach(($el) => $el.classList.remove('active'));
           $categories[activeCategorySlide].focus();
+          $categories[activeCategoryIndex].classList.add('focus');
           break;
         case 39: //RIGHT arrow
           e.preventDefault();

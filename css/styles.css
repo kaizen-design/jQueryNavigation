@@ -160,8 +160,8 @@ ul {
   bottom: 25px;
 }
 
-.category-slider {
-
+.category-slider .swiper-wrapper {
+  padding: 0.25rem;
 }
 .category-slider .slider-item {
   color: #000;
@@ -186,6 +186,9 @@ ul {
 .category-slider .slider-item:hover {
   background: #000;
   color: #fff;
+}
+.category-slider .slider-item.focus {
+  box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
 }
 
 /* PRODUCT MENU */
