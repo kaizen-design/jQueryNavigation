@@ -2,8 +2,8 @@ const APP = {
   init: () => {
     const $basket = document.querySelector('.basket');
     const $productPreview = document.querySelector('.product-preview-slider');
-    const $modalEl = document.querySelector('#productModal');
-    const $productModal = new bootstrap.Modal($modalEl);
+    const $productModalEl = document.querySelector('#productModal');
+    const $productModal = new bootstrap.Modal($productModalEl);
     const $closeModalBtn = document.querySelector('#productModal .back-btn');
     const $backBtn = document.querySelector('footer .back-btn');
     const $addToCartBtn = document.querySelector('.add-to-cart-btn');
@@ -12,10 +12,13 @@ const APP = {
     const $quantity = document.getElementById('quantity');
     const $productDescription = document.querySelector('.product-description');   
     const $productOptions = document.querySelectorAll('.product-description input'); 
-    const $datepicker = document.querySelector('.date-picker');
     const $actionButtons = document.querySelectorAll(".btn-dark");
+    const $datepickerInput = document.querySelector('.date-picker');
+    const $datepickerModalEl = document.querySelector('#datepickerModal');
+    const $datepickerModal = new bootstrap.Modal($datepickerModalEl);
+    const $modalCalendar = document.querySelector('#datepickerModal .modal-datepicker');
 
-    let activeOption = 0;
+    let activeOption = 0, selectedDate = new Date(), today = new Date();
     
     const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
@@ -46,22 +49,28 @@ const APP = {
     });
     $modalSlider.autoplay.stop(); 
 
-    if ($datepicker) {
-      $datepicker.value = new Date().toLocaleDateString();
-      /* $calendar = new AirDatepicker($datepicker, {
-        selectedDates: [new Date()],
-        inline: true
-      }) */
+    if ($datepickerInput) {
+      $datepickerInput.value = today.toLocaleDateString();
+      $calendar = new AirDatepicker($modalCalendar, {
+        selectedDates: [today],
+        minDate: today,
+        inline: true,
+        isMobile: true
+      });
     }
 
     if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
       Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
     }
 
-    $modalEl.addEventListener('shown.bs.modal', event => {
+    $productModalEl.addEventListener('shown.bs.modal', event => {
       $productSlider.autoplay.stop();
       $modalSlider.update();
       $modalSlider.autoplay.start(); 
+    });
+
+    $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
+      $productOptions[activeOption].focus();
     });
     
     $productPreview.setAttribute('tabindex', '0');
@@ -148,10 +157,9 @@ const APP = {
               break;
             case 13 || 32: //OK || Space button
               e.preventDefault();
-              /* console.log('calendar')
-              if ($calendar && $productOptions[activeOption].classList.contains('date-picker')) {
-                $calendar.open();
-              } */
+              if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
+                $datepickerModal.show();
+              }
               if($productOptions[activeOption].checked == false) {
                 $productOptions[activeOption].checked = true; 
               }
@@ -166,6 +174,42 @@ const APP = {
               break;
           }
         });
+      });
+    }
+
+    if ($datepickerModalEl) {
+      $datepickerModalEl.addEventListener('keydown', function(e) {
+        switch(e.keyCode){
+          case 37: //LEFT arrow
+            e.preventDefault();
+            let prevDay = new Date(selectedDate);
+            prevDay.setDate(prevDay.getDate() - 1);
+            if (prevDay >= today) {
+              $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() - 1));
+            }
+            break;
+          case 38: //UP arrow
+            $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() - 7));
+            break;
+          case 39: //RIGHT arrow
+            e.preventDefault();
+            $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() + 1));
+            break;
+          case 40: //DOWN arrow
+            e.preventDefault();
+            $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() + 7));
+            break;
+          case 13: //OK button
+            e.preventDefault();
+            console.log('OK')
+            $datepickerInput.value = selectedDate.toLocaleDateString();
+            $datepickerModal.hide();
+            $datepickerInput.focus();
+            break;
+          default:
+            console.log('Key code : ' + e.keyCode);
+            break;
+        }
       });
     }
 
@@ -271,7 +315,7 @@ const APP = {
     	}
     });
 
-    $modalEl.addEventListener('keydown', function(e) {
+    $productModalEl.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
         case 37: //LEFT arrow
           e.preventDefault();
@@ -289,7 +333,7 @@ const APP = {
           break;
         case 38: //UP arrow
           e.preventDefault();
-          $modalEl.focus();
+          $productModalEl.focus();
           break;  
         case 40: //DOWN arrow
           $closeModalBtn.focus();

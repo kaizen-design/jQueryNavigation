@@ -21,7 +21,7 @@
 @font-face {
   font-family: TTCommons;
   src: url('../src/fonts/TTCommons-Bold.ttf');
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .font-family-base {
@@ -530,14 +530,12 @@ ul {
 }
 .amount-counter .btn.active,
 .footer .add-to-cart-btn.active {
-  //background: #000;
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border: none;
 }
 .amount-counter .btn span {
   line-height: 81px;
   position: relative;
-  /* top: -6px; */
 }
 .amount-counter .counter-value {
   height: 81px;
@@ -588,6 +586,15 @@ ul {
 #productModal .back-btn:focus {
   opacity: 1;
 }
+
+/* DATEPICKER MODAL */
+#datepickerModal .modal-dialog {
+  max-width: max-content;
+}
+#datepickerModal .modal-content {
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);
+}
+
 .modal-backdrop {
   background-color: #fff!important;
   opacity: 0.7!important;
