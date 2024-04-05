@@ -17,15 +17,8 @@ const APP = {
     const $datepickerModalEl = document.querySelector('#datepickerModal');
     const $modalCalendar = document.querySelector('#datepickerModal .modal-datepicker');
 
-    let activeOption = 0, selectedDate = new Date(), today = new Date(), $datepickerModal;
+    let activeOption = 0, $calendar, selectedDate = new Date(), today = new Date(), $datepickerModal;
 
-    if ($datepickerModalEl) {
-      $datepickerModal = new bootstrap.Modal($datepickerModalEl);
-      $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
-        $productOptions[activeOption].focus();
-      });
-    }
-    
     const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
       loop: true,
@@ -65,6 +58,13 @@ const APP = {
       });
     }
 
+    if ($datepickerModalEl) {
+      $datepickerModal = new bootstrap.Modal($datepickerModalEl);
+      $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
+        $productOptions[activeOption].focus();
+      });
+    }
+
     if ($productDescription.scrollHeight > $productDescription.offsetHeight) {
       Array.from($productDescription.children).forEach(($child) => $child.classList.add('me-5'))
     }
@@ -74,8 +74,6 @@ const APP = {
       $modalSlider.update();
       $modalSlider.autoplay.start(); 
     });
-
-    
     
     $productPreview.setAttribute('tabindex', '0');
     $productPreview.focus();
@@ -102,7 +100,6 @@ const APP = {
         case 13: //OK button
           e.preventDefault();
           $productModal.show();
-          //$productModal.setAttribute('tabindex', '0');
           break;
         default:
           console.log('Key code : ' + e.keyCode);
@@ -169,7 +166,7 @@ const APP = {
               }
               else {
                 if($productOptions[activeOption].checked == true) {
-                    $productOptions[activeOption].checked = false; 
+                  $productOptions[activeOption].checked = false; 
                 }   
               }
               break;
@@ -205,7 +202,6 @@ const APP = {
             break;
           case 13: //OK button
             e.preventDefault();
-            console.log('OK')
             $datepickerInput.value = selectedDate.toLocaleDateString();
             $datepickerModal.hide();
             $datepickerInput.focus();
@@ -323,13 +319,11 @@ const APP = {
     	switch(e.keyCode){
         case 37: //LEFT arrow
           e.preventDefault();
-          console.log('Left arrow pressed');
           $modalSlider.update();
           $modalSlider.slidePrev();
           break;
         case 39: //RIGHT arrow
           e.preventDefault();
-          console.log('Right arrow pressed')
           $modalSlider.update();
           $modalSlider.slideNext();
           break;  
