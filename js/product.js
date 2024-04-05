@@ -125,11 +125,17 @@ const APP = {
               e.preventDefault();
               if ($productOptions[activeOption - 1]) {
                 if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling) {
-                  activeOption -= $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length;
-                    console.log($productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length)
-                    $productOptions[activeOption].focus();
-                    if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
-                      $productDescription.scrollTop -= 500
+                  const prevListItems = $productOptions[activeOption].parentElement?.parentElement?.parentElement?.previousElementSibling?.querySelectorAll('li')?.length;
+                  let prev_siblings = [];
+                  let prev_elem = $productOptions[activeOption].parentElement?.previousElementSibling;
+                  while(prev_elem) {
+                    prev_siblings.push(prev_elem); 
+                    prev_elem = prev_elem.previousElementSibling;
+                  }
+                  activeOption -= prevListItems + (prev_siblings.length + 1 >= prevListItems ? prev_siblings.length + 1 - prevListItems : 0 );
+                  $productOptions[activeOption].focus();
+                  if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                    $productDescription.scrollTop -= 500
                   }
                 } else {
                   $productOptions[activeOption - 1].focus();
@@ -155,16 +161,13 @@ const APP = {
               break;
             case 40: //DOWN arrow
               e.preventDefault();
-              
               if ($productOptions[activeOption + 1]) {
-                
                 if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.nextElementSibling) {
                   activeOption += $productOptions[activeOption].parentElement?.parentElement?.parentElement?.querySelectorAll('li')?.length;
-                    console.log($productOptions[activeOption].parentElement?.parentElement?.parentElement?.querySelectorAll('li')?.length)
-                    $productOptions[activeOption].focus();
-                    if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
-                      $productDescription.scrollTop -= 500
-                  }
+                  $productOptions[activeOption].focus();
+                  if ($productOptions[activeOption].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
+                    $productDescription.scrollTop -= 500
+                    }
                 } else {
                   $productOptions[activeOption + 1].focus();
                   if ($productOptions[activeOption + 1].getBoundingClientRect().top < $productDescription.offsetHeight / 2) {
