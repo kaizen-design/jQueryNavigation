@@ -15,10 +15,16 @@ const APP = {
     const $actionButtons = document.querySelectorAll(".btn-dark");
     const $datepickerInput = document.querySelector('.date-picker');
     const $datepickerModalEl = document.querySelector('#datepickerModal');
-    const $datepickerModal = new bootstrap.Modal($datepickerModalEl);
     const $modalCalendar = document.querySelector('#datepickerModal .modal-datepicker');
 
-    let activeOption = 0, selectedDate = new Date(), today = new Date();
+    let activeOption = 0, selectedDate = new Date(), today = new Date(), $datepickerModal;
+
+    if ($datepickerModalEl) {
+      $datepickerModal = new bootstrap.Modal($datepickerModalEl);
+      $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
+        $productOptions[activeOption].focus();
+      });
+    }
     
     const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
@@ -69,9 +75,7 @@ const APP = {
       $modalSlider.autoplay.start(); 
     });
 
-    $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
-      $productOptions[activeOption].focus();
-    });
+    
     
     $productPreview.setAttribute('tabindex', '0');
     $productPreview.focus();
