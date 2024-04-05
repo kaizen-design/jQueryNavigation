@@ -406,7 +406,7 @@ ul {
 }
 .option-item .option-badge > span {
   position: relative;
-  top: 1px;
+  top: 4px;
 }
 .option-item .form-control {
   border: 2px solid #000;
