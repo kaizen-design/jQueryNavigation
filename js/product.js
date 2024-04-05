@@ -175,12 +175,10 @@ const APP = {
               break;
             case 40: //DOWN arrow
               e.preventDefault();
-              
               if ($productOptions[activeOption + 1]) {
                 if ($productOptions[activeOption].classList.contains('btn-check') && $productOptions[activeOption].parentElement?.parentElement?.parentElement?.nextElementSibling) {
                   activeOption += $productOptions[activeOption].parentElement?.parentElement?.parentElement?.querySelectorAll('li')?.length;
                   $productOptions[activeOption].focus();
-                  
                   if ($productOptions[activeOption].getBoundingClientRect().top > $productDescription.offsetHeight) {
                     $productDescription.scrollTop += 500
                   }
