@@ -204,7 +204,11 @@ const APP = {
             }
             break;
           case 38: //UP arrow
-            $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() - 7));
+            let prevWeek = new Date(selectedDate);
+            prevWeek.setDate(prevWeek.getDate() - 7);
+            if (prevWeek >= today) {
+              $calendar.selectDate(selectedDate.setDate(selectedDate.getDate() - 7));
+            }
             break;
           case 39: //RIGHT arrow
             e.preventDefault();
