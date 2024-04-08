@@ -169,8 +169,9 @@ const APP = {
                 $productOptions[activeOption + 1].focus();
                 activeOption += 1;
               } else {
-                $productPreview.classList.add('active');
-                $productPreview.focus();
+                //$basket.focus();
+                //$productPreview.classList.add('active');
+                //$productPreview.focus();
               }
               break;
             case 40: //DOWN arrow
