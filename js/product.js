@@ -13,11 +13,25 @@ const APP = {
     const $productDescription = document.querySelector('.product-description');   
     const $productOptions = document.querySelectorAll('.product-description input'); 
     const $actionButtons = document.querySelectorAll(".btn-dark");
+    
     const $datepickerInput = document.querySelector('.date-picker');
     const $datepickerModalEl = document.querySelector('#datepickerModal');
     const $modalCalendar = document.querySelector('#datepickerModal .modal-datepicker');
 
-    let activeOption = 0, $calendar, selectedDate = new Date(), today = new Date(), $datepickerModal;
+    const $timepickerInput = document.querySelector('.time-picker');
+    const $timepickerModalEl = document.querySelector('#timepickerModal');
+    const $modalClock = document.querySelector('#timepickerModal .modal-timepicker');
+
+    let activeOption = 0, 
+        $calendar, 
+        $clock,
+        selectedDate = new Date(), 
+        today = new Date(), 
+        $datepickerModal,
+        $timepickerModal,
+        $hours,
+        $selectTimeBtn,
+        $minutes;
 
     const $productSlider = new Swiper($productPreview, {
       slidesPerView: 1,
@@ -61,6 +75,38 @@ const APP = {
     if ($datepickerModalEl) {
       $datepickerModal = new bootstrap.Modal($datepickerModalEl);
       $datepickerModalEl.addEventListener('hidden.bs.modal', event => {
+        $productOptions[activeOption].focus();
+      });
+    }
+
+    if ($timepickerInput) {
+      //$timepickerInput.value = today.toLocaleDateString();
+      let button = {
+        content: 'Выбрать время',
+      }
+      $clock = new AirDatepicker($modalClock, {
+        //selectedDates: [today],
+        //minDate: today,
+        //minHours: '',
+        inline: true,
+        isMobile: true,
+        timepicker: true,
+        onlyTimepicker: true,
+        timeFormat: 'HH:mm',
+        buttons: [button]
+      });
+
+      $hours = document.querySelector('#timepickerModal input[name="hours"]');
+      $minutes = document.querySelector('#timepickerModal input[name="minutes"]');
+      $selectTimeBtn = document.querySelector('#timepickerModal .air-datepicker-button');
+    }
+
+    if ($timepickerModalEl) {
+      $timepickerModal = new bootstrap.Modal($timepickerModalEl);
+      $timepickerModalEl.addEventListener('shown.bs.modal', event => {
+        $hours.focus();
+      });
+      $timepickerModalEl.addEventListener('hidden.bs.modal', event => {
         $productOptions[activeOption].focus();
       });
     }
@@ -203,6 +249,9 @@ const APP = {
               if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
                 $datepickerModal.show();
               }
+              if ($timepickerInput && $productOptions[activeOption].classList.contains('time-picker')) {
+                $timepickerModal.show();
+              }
               if($productOptions[activeOption].checked == false) {
                 $productOptions[activeOption].checked = true; 
               }
@@ -216,6 +265,9 @@ const APP = {
               e.preventDefault();
               if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
                 $datepickerModal.show();
+              }
+              if ($timepickerInput && $productOptions[activeOption].classList.contains('time-picker')) {
+                $timepickerModal.show();
               }
               if($productOptions[activeOption].checked == false) {
                 $productOptions[activeOption].checked = true; 
@@ -272,6 +324,67 @@ const APP = {
         }
       });
     }
+
+    if ($timepickerModalEl) {
+
+      if ($hours) {
+        $hours.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 38: //UP arrow
+              e.preventDefault();
+              $hours.focus();
+              break;
+            case 40: //DOWN arrow
+              e.preventDefault();
+              $minutes.focus();
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
+      }
+
+      if ($minutes) {
+        $minutes.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 38: //UP arrow
+              e.preventDefault();
+              $hours.focus();
+              break;
+            case 40: //DOWN arrow
+              e.preventDefault();
+              $selectTimeBtn.focus();
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
+      }
+
+      if ($selectTimeBtn) {
+        $selectTimeBtn.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 38: //UP arrow
+              e.preventDefault();
+              $minutes.focus();
+              break;
+            case 13: //OK button
+              e.preventDefault();
+              $timepickerModal.hide();
+              $timepickerInput.value = $hours.value + ':' + $minutes.value;
+              $timepickerInput.focus();
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
+      }
+    }
+
+    
 
     $addToCartBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){

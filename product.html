@@ -7,9 +7,11 @@
     <link href="./css/styles.css" rel="stylesheet" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="./css/air-datepicker.css" rel="stylesheet" />
     <script src="./js/utils.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/air-datepicker.js"></script>
     <script src="./js/product.js"></script>
   </head>
 
@@ -57,23 +59,24 @@
           <div class="h-100">
             <h2 class="product-title font-family-base pb-4 mb-5">Куриный рулет, ростбиф, язык говяжий, буженина, горчица и хрен. 120 г.</h2>
             <ul class="product-options-list d-flex flex-column list-unstyled mb-0">
-              <li class="option-item d-flex flex-column">
-                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+              <li class="option-item d-flex flex-column mb-5">
+                <div class="option-head d-flex justify-content-between align-items-center mb-3">
                   <span class="option-label font-family-base">Добавить ингридиент:</span>
                   <span class="option-badge font-family-base">До 2-х опций</span>
                 </div>
                 <ul class="option-variant-list d-flex flex-column list-unstyled mb-0">
-                  <li class="d-flex justify-content-between align-items-center py-2">
-                    <div class="form-check mb-0 d-flex align-items-center">
+                  <li class="d-flex justify-content-between align-items-start py-3">
+                    <div class="form-check mb-0 d-flex align-items-start">
                       <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="300" id="option-1-variant-1" checked>
-                      <label class="form-check-label font-family-base" for="option-1-variant-1">
-                        Мясо
+                      <label class="form-check-label font-family-base d-flex flex-column" for="option-1-variant-1">
+                        <span class="font-family-base">Мясо</span>
+                        <span class="label-description font-family-base">Средней прожарки с корочкой</span>
                       </label>
                     </div>
                     <span class="variant-price font-family-base">+300 ₽</span>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center py-2">
-                    <div class="form-check mb-0 d-flex align-items-center">
+                  <li class="d-flex justify-content-between align-items-start py-3">
+                    <div class="form-check mb-0 d-flex align-items-start">
                       <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="200" id="option-1-variant-2">
                       <label class="form-check-label font-family-base" for="option-1-variant-2">
                         Зелень
@@ -81,8 +84,8 @@
                     </div>
                     <span class="variant-price font-family-base">+200 ₽</span>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center py-2">
-                    <div class="form-check mb-0 d-flex align-items-center">
+                  <li class="d-flex justify-content-between align-items-start py-3">
+                    <div class="form-check mb-0 d-flex align-items-start">
                       <input class="form-check-input me-4" type="checkbox" name="option_1_variant" value="100" id="option-1-variant-3" checked>
                       <label class="form-check-label font-family-base" for="option-1-variant-3">
                         Лук
@@ -92,6 +95,30 @@
                   </li>
                 </ul>
               </li>
+              <li class="option-item d-flex flex-column mb-5">
+                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+                  <span class="option-label font-family-base">Выберите время:</span>
+                  <span class="option-badge bg-black"><span class="font-family-base">Обязательно</span></span>
+                </div>
+                <div class="form-group py-2 mb-4 position-relative">
+                  <input type="text" class="form-control time-picker font-family-base" name="time" value="" readonly />
+                  <svg class="calendar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="g267" width="45" height="39" viewBox="0 0 45 39">
+                    <g id="g269">
+                      <g id="_Группа_обтравки_" data-name="&lt;Группа обтравки&gt;">
+                        <image id="g271" width="45" height="39" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAnCAYAAACbgcH8AAACOUlEQVRYhdVYwU0DMRAcozwjcT/yC09+pANCBVwJoYN0QOggdJB0EIkCSAlHB0Hii3T55WdktD5tvL47WwQ7jGTJ2d3Y47312l5orX/dAMwBFF3jBNqUfTY/dj5hTAOwBGA6m7b/BdqUZFP59Lxd4PeY0AhFx0gxNrdC48K3EscDUwA1eeEc2jzE04b0pZDmQzmInPpZSIAZgDGADwAroQ23Mc65C5gnKDwWNiRa9FvSb336CJvgeU6xEU0q23d4MNTGZJh3AI9C4yA2PAS01lVP5gi1qVkG6cQpPJ0cUZ5WSk2FMB2aLxVCesT6b0KbHqOQ8BgJSV5chXjabKIH6t8LbTq8AhgiNqa11lshTASlVDNR6DEOyqE5MaS59zEprxaSTAghbe8DO6FJBCfVHjpJK6Wu2c9spAFwHt2knWM12yZk+8qg7iNdsn4ltOlwdBL3kW4yB11okoNCdBxEWik1YcZdV8q/RumO30qa7skWG6FNB8vj0ElaKVWwFZrQyJI5KNXZr/1l5V7StDr7mF0KbTos2EyfTc/zFitYyWDne6+laJQEbMli1fdG5F5eCG068C98zMPx8oStLqeX59zL7mvcDYuKGU99AyYgzB1X24JkW3isWB3tJcfdmbIWT68z36E2IOMVe53YAXgc3dCF6eAOcGKULMUZx7WeD8UZFRdtEyVhX3isxVLyYU11u3b4NkNMjS3hBhWe/leIrTDlPGya10tsAfJJSDIgJDxMLJky7XkA2HwDtkPR5vjpBP0AAAAASUVORK5CYII="/>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </li>
+              <li class="option-item d-flex flex-column">
+                <div class="option-head d-flex justify-content-between align-items-center mb-4">
+                  <span class="option-label font-family-base">Текстовое поле:</span>
+                </div>
+                <div class="form-group py-2 mb-4 position-relative">
+                  <input type="text" class="form-control font-family-base" name="text" value="" />
+                </div>
+              </li>  
             </ul>
           </div>  
         </div>
@@ -152,6 +179,22 @@
               </g>
               </svg>
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="datepickerModal" tabindex="-1" aria-labelledby="datepickerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-datepicker"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="timepickerModal" tabindex="-1" aria-labelledby="timepickerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-timepicker"></div>
         </div>
       </div>
     </div>

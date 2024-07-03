@@ -443,7 +443,7 @@ ul {
   height: 38px;
   border: 4px solid #000;
   border-radius: 50%;
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 .option-variant-list > li .form-check-input:checked {
   background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
@@ -453,14 +453,18 @@ ul {
 }
 .option-variant-list > li .form-check-label {
   font-size: 42px;
-  /* line-height: 1.2; */
+  line-height: 1.2;
   font-weight: normal;
   position: relative;
-  top: 4px;
+  top: 3px;
+}
+.option-variant-list > li .form-check-label .label-description {
+  font-size: 32px;
+  color: #808080;
 }
 .option-variant-list > li .variant-price {
   font-size: 42px;
-  /* line-height: 1.2; */
+  line-height: 1.2;
   font-weight: normal;
   position: relative;
   top: 4px;
@@ -600,13 +604,16 @@ ul {
 }
 
 /* DATEPICKER MODAL */
-#datepickerModal .modal-dialog {
+#datepickerModal .modal-dialog,
+#timepickerModal .modal-dialog {
   max-width: max-content;
 }
-#datepickerModal .modal-content {
+#datepickerModal .modal-content,
+#timepickerModal .modal-content {
   box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);
 }
-#datepickerModal .air-datepicker {
+#datepickerModal .air-datepicker,
+#timepickerModal .air-datepicker {
   --adp-font-family: TTCommons, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --adp-font-size: 42px;
   --adp-width: 500px;
@@ -655,9 +662,9 @@ ul {
   --adp-cell-background-color-in-range: rgba(92, 196, 239, 0.1);
   --adp-cell-background-color-in-range-hover: rgba(92, 196, 239, 0.2);
   --adp-cell-border-color-in-range: var(--adp-cell-background-color-selected);
-  --adp-btn-height: 32px;
-  --adp-btn-color: var(--adp-accent-color);
-  --adp-btn-color-hover: var(--adp-color);
+  --adp-btn-height: 60px;
+  --adp-btn-color: #000;
+  --adp-btn-color-hover: #000;
   --adp-btn-border-radius: var(--adp-border-radius);
   --adp-btn-background-color-hover: var(--adp-background-color-hover);
   --adp-btn-background-color-active: var(--adp-background-color-active);
@@ -666,7 +673,7 @@ ul {
   --adp-time-track-color-hover: #b1b1b1;
   --adp-time-thumb-size: 12px;
   --adp-time-padding-inner: 10px;
-  --adp-time-day-period-color: var(--adp-color-secondary);
+  --adp-time-day-period-color: #000;
   --adp-mobile-font-size: 16px;
   --adp-mobile-nav-height: 40px;
   --adp-mobile-width: 320px;
@@ -684,6 +691,29 @@ ul {
 #datepickerModal .air-datepicker-cell {
   flex-grow: 1;
   width: 14.28%;
+}
+
+#timepickerModal .air-datepicker-time--current-hours, 
+#timepickerModal .air-datepicker-time--current-minutes,
+#timepickerModal .air-datepicker-time--current {
+  font-size: 32px;
+}
+
+#timepickerModal .air-datepicker--buttons {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+}
+
+#timepickerModal .-only-timepicker- .air-datepicker-time {
+  display: flex;
+  flex-direction: column;
+}
+
+#timepickerModal .air-datepicker-time--sliders {
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .modal-backdrop {
