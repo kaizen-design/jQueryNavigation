@@ -80,14 +80,10 @@ const APP = {
     }
 
     if ($timepickerInput) {
-      //$timepickerInput.value = today.toLocaleDateString();
-      let button = {
+      const button = {
         content: 'Выбрать время',
       }
       $clock = new AirDatepicker($modalClock, {
-        //selectedDates: [today],
-        //minDate: today,
-        //minHours: '',
         inline: true,
         isMobile: true,
         timepicker: true,
@@ -105,6 +101,7 @@ const APP = {
       $timepickerModal = new bootstrap.Modal($timepickerModalEl);
       $timepickerModalEl.addEventListener('shown.bs.modal', event => {
         $hours.focus();
+        $clock.viewDate;
       });
       $timepickerModalEl.addEventListener('hidden.bs.modal', event => {
         $productOptions[activeOption].focus();
@@ -334,6 +331,18 @@ const APP = {
               e.preventDefault();
               $hours.focus();
               break;
+            case 37: //LEFT arrow
+              e.preventDefault();
+              $clock.selectDate(new Date(null, null, null, parseInt($hours.value) - 1, parseInt($minutes.value)), {
+                updateTime: true
+              });
+              break;
+            case 39: //RIGHT arrow
+              e.preventDefault();
+              $clock.selectDate(new Date(null, null, null, parseInt($hours.value) + 1, parseInt($minutes.value)), {
+                updateTime: true
+              });
+              break;
             case 40: //DOWN arrow
               e.preventDefault();
               $minutes.focus();
@@ -351,6 +360,18 @@ const APP = {
             case 38: //UP arrow
               e.preventDefault();
               $hours.focus();
+              break;
+              case 37: //LEFT arrow
+            e.preventDefault();
+              $clock.selectDate(new Date(null, null, null, parseInt($hours.value), parseInt($minutes.value) - 1), {
+                updateTime: true
+              });
+              break;
+            case 39: //RIGHT arrow
+              e.preventDefault();
+              $clock.selectDate(new Date(null, null, null, parseInt($hours.value), parseInt($minutes.value) + 1), {
+                updateTime: true
+              });
               break;
             case 40: //DOWN arrow
               e.preventDefault();
@@ -373,7 +394,7 @@ const APP = {
             case 13: //OK button
               e.preventDefault();
               $timepickerModal.hide();
-              $timepickerInput.value = $hours.value + ':' + $minutes.value;
+              $timepickerInput.value = formatTime($hours.value) + ':' + formatTime($minutes.value);
               $timepickerInput.focus();
               break;
             default:
@@ -383,8 +404,6 @@ const APP = {
         });
       }
     }
-
-    
 
     $addToCartBtn.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
@@ -573,4 +592,8 @@ if (
   APP.init();
 } else {
   document.addEventListener("DOMContentLoaded", APP.init);
+}
+
+function formatTime(val) {
+  return val > 0 && val < 10 ? '0' + val : val;
 }
