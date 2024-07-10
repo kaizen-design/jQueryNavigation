@@ -493,7 +493,7 @@ const APP = {
     	switch(e.keyCode){
         case 13: //OK button
           e.preventDefault();
-          console.log('Go to basket')
+          window.location.href = $basket.getAttribute('href');
           break;
         case 40: //DOWN arrow
           e.preventDefault();

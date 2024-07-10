@@ -770,6 +770,7 @@ ul {
 .cart-item .item-meta {
   font-size: 36px;
   line-height: 1.2;
+  font-weight: 400;
 }
 
 .cart-item .item-total {

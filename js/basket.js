@@ -13,6 +13,11 @@ const APP = {
       $cartItems[activeIndex].focus();
       $cartItems[activeIndex].classList.add('active');
       $cartItems.forEach(($item) => {
+
+        const $plusBtn = $item.querySelector('.plusBtn');
+        const $minusBtn = $item.querySelector('.minusBtn');
+        const $itemQuantity = $item.querySelector('.itemQuantity');
+
         $item.addEventListener('keydown', function(e) {
           switch(e.keyCode) {
             case 40: //DOWN arrow
@@ -21,10 +26,13 @@ const APP = {
                 activeIndex += 1;
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $cartItems[activeIndex].classList.add('active');
+                $cartItems[activeIndex].focus();
               } else {
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $checkoutBtn.focus();
               }
+              $minusBtn.classList.remove('focus');
+              $plusBtn.classList.remove('focus');
               break;
             case 38: //UP arrow
               e.preventDefault();
@@ -32,10 +40,67 @@ const APP = {
                 activeIndex -= 1;
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $cartItems[activeIndex].classList.add('active');
+                $cartItems[activeIndex].focus();
+              } else {
+                $cartItems[activeIndex].focus();
               }
+              $minusBtn.classList.remove('focus');
+              $plusBtn.classList.remove('focus');
+              break;
+            case 39: //RIGHT arrow
+              e.preventDefault();
+              if (!$minusBtn.classList.contains('focus')) {
+                $minusBtn.classList.add('focus');
+                $minusBtn.focus();
+              } else {
+                $minusBtn.classList.remove('focus');
+                $plusBtn.classList.add('focus');
+                $plusBtn.focus();
+              }
+              break;
+            case 37: //LEFT arrow
+              e.preventDefault();
+              if ($minusBtn.classList.contains('focus')) {
+                $minusBtn.classList.remove('focus');
+                $cartItems[activeIndex].focus();
+              }  
+              if ($plusBtn.classList.contains('focus')) {
+                $plusBtn.classList.remove('focus');
+                $minusBtn.classList.add('focus');
+                $minusBtn.focus();
+              }  
               break;
           }
         });
+
+        $plusBtn.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 13: //OK button
+              e.preventDefault();
+              const value = parseInt($itemQuantity.textContent);
+              $itemQuantity.innerText = value + 1;
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
+
+        $minusBtn.addEventListener('keydown', function(e) {
+          switch(e.keyCode){
+            case 13: //OK button
+              e.preventDefault();
+              const value = parseInt($itemQuantity.textContent);
+              if (value > 1) {
+                $itemQuantity.innerText = value - 1;
+              }
+              break;
+            default:
+              console.log('Key code : ' + e.keyCode);
+              break;
+          }
+        });
+
       })
     }
 
@@ -51,10 +116,7 @@ const APP = {
           $backBtn.focus();
           break;
         case 13: //OK button
-          /* tizen.application.getCurrentApplication().exit(); */
-          break;
-        case 10009: //RETURN button
-          /* tizen.application.getCurrentApplication().exit(); */
+          window.location.href = $$checkoutBtn.getAttribute('href');
           break;
         default:
           console.log('Key code : ' + e.keyCode);

@@ -91,7 +91,7 @@ const APP = {
     $basket.addEventListener('keydown', function(e) {
     	switch(e.keyCode){
         case 13: //OK button
-          console.log('Go to basket')
+          window.location.href = $basket.getAttribute('href');
           break;
         case 40: //DOWN arrow
           $menuItems[activeIndex].classList.add('active');
