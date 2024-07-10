@@ -777,6 +777,8 @@ ul {
   font-size: 50px;
   line-height: 1.2;
   font-weight: 600;
+  width: 250px;
+  text-align: right;
 }
 
 .cart-section .cart-total {
