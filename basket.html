@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100 overflow-hidden">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HotBot</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <script src="./js/utils.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/basket.js"></script>
+  </head>
+
+  <body class="h-100 p-5 bg-white d-flex flex-column text-black">
+    <header class="header d-flex justify-content-between flex-shrink-0">
+      <h1 class="brand mb-0 font-family-base">Корзина</h1>
+    </header>  
+    <main class="flex-grow-1 d-flex flex-column py-5 overflow-hidden">
+      <div class="cart-section d-flex flex-column flex-grow-1 h-100">
+        <ul class="cart-list list-unstyled flex-grow-1 overflow-y-scroll mb-0">
+          <li class="cart-item d-flex align-items-start py-4">
+            <div class="d-flex flex-column flex-grow-1 pt-2 mt-1">
+              <span class="item-title font-family-base">Завтрак «Французский»</span>
+            </div>
+            <div class="amount-counter input-group w-auto px-5">
+              <button id="minusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">-</span></button>
+              <span class="counter-value mx-3">
+                <span id="quantity" class="font-family-base">1</span>
+              </span>
+              <button id="plusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">+</span></button>
+            </div>
+            <span class="item-total font-family-base ps-5 pt-2 mt-1">550 ₽</span>
+          </li>
+          <li class="cart-item d-flex align-items-start py-4">
+            <div class="d-flex flex-column flex-grow-1 pt-2 mt-1">
+              <span class="item-title font-family-base">Завтрак «Русский»</span>
+              <span class="item-meta font-family-base">На выбор: Овсяная каша</span>
+            </div>
+            <div class="amount-counter input-group w-auto px-5">
+              <button id="minusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">-</span></button>
+              <span class="counter-value mx-3">
+                <span id="quantity" class="font-family-base">1</span>
+              </span>
+              <button id="plusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">+</span></button>
+            </div>
+            <span class="item-total font-family-base ps-5 pt-2 mt-1">550 ₽</span>
+          </li>
+          <li class="cart-item d-flex align-items-start py-4">
+            <div class="d-flex flex-column flex-grow-1 pt-2 mt-1">
+              <span class="item-title font-family-base">Волейбольная площадка</span>
+              <span class="item-meta font-family-base d-flex align-items-center">
+                <svg class="calendar-icon me-3 mb-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="g267" width="45" height="39" viewBox="0 0 45 39">
+                  <g id="g269">
+                    <g id="_Группа_обтравки_" data-name="&lt;Группа обтравки&gt;">
+                      <image id="g271" width="45" height="39" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAnCAYAAACbgcH8AAACOUlEQVRYhdVYwU0DMRAcozwjcT/yC09+pANCBVwJoYN0QOggdJB0EIkCSAlHB0Hii3T55WdktD5tvL47WwQ7jGTJ2d3Y47312l5orX/dAMwBFF3jBNqUfTY/dj5hTAOwBGA6m7b/BdqUZFP59Lxd4PeY0AhFx0gxNrdC48K3EscDUwA1eeEc2jzE04b0pZDmQzmInPpZSIAZgDGADwAroQ23Mc65C5gnKDwWNiRa9FvSb336CJvgeU6xEU0q23d4MNTGZJh3AI9C4yA2PAS01lVP5gi1qVkG6cQpPJ0cUZ5WSk2FMB2aLxVCesT6b0KbHqOQ8BgJSV5chXjabKIH6t8LbTq8AhgiNqa11lshTASlVDNR6DEOyqE5MaS59zEprxaSTAghbe8DO6FJBCfVHjpJK6Wu2c9spAFwHt2knWM12yZk+8qg7iNdsn4ltOlwdBL3kW4yB11okoNCdBxEWik1YcZdV8q/RumO30qa7skWG6FNB8vj0ElaKVWwFZrQyJI5KNXZr/1l5V7StDr7mF0KbTos2EyfTc/zFitYyWDne6+laJQEbMli1fdG5F5eCG068C98zMPx8oStLqeX59zL7mvcDYuKGU99AyYgzB1X24JkW3isWB3tJcfdmbIWT68z36E2IOMVe53YAXgc3dCF6eAOcGKULMUZx7WeD8UZFRdtEyVhX3isxVLyYU11u3b4NkNMjS3hBhWe/leIrTDlPGya10tsAfJJSDIgJDxMLJky7XkA2HwDtkPR5vjpBP0AAAAASUVORK5CYII="/>
+                    </g>
+                  </g>
+                </svg>
+                <span class="font-family-base">28 мая 2024 г., 18:00</span>
+              </span>
+              <span class="item-meta font-family-base">Порядок аренды: Без болельщиков</span>
+            </div>
+            <div class="amount-counter input-group w-auto px-5">
+              <button id="minusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">-</span></button>
+              <span class="counter-value mx-3">
+                <span id="quantity" class="font-family-base">1</span>
+              </span>
+              <button id="plusBtn" class="btn btn-dark rounded-circle" type="button"><span class="font-family-base">+</span></button>
+            </div>
+            <span class="item-total font-family-base ps-5 pt-2 mt-1">500 ₽</span>
+          </li>  
+        </ul>
+        <div class="cart-total d-flex justify-content-end align-items-center pt-5">
+          <span class="font-family-base me-4">Итого:</span>
+          <span class="font-family-base fw-600">1600 ₽</span>
+        </div>
+      </div>
+    </main>
+    <footer class="footer d-flex justify-content-between flex-shrink-0">
+      <div class="d-flex align-items-center">
+        <button class="checkout-btn btn btn-dark rounded-pill d-flex align-items-center" type="button">
+          <span class="font-family-base">Оформить заказ</span>
+        </button>
+      </div>
+      <a href="category.html" class="back-btn d-block rounded-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="119.000000px" height="120.000000px" viewBox="0 0 119.000000 120.000000" preserveAspectRatio="xMidYMid meet">
+          <g transform="translate(0.000000,120.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <path d="M502 1190 c-136 -25 -243 -83 -338 -183 -99 -105 -151 -223 -161 -368 -23 -341 248 -629 592 -629 374 0 658 347 581 710 -46 221 -225 408 -437 459 -69 16 -177 21 -237 11z m-24 -332 c18 -18 15 -24 -24 -68 l-36 -40 148 0 c170 0 210 -8 261 -53 85 -75 85 -199 0 -274 -47 -41 -91 -53 -204 -53 -70 0 -95 4 -107 16 -40 39 -9 54 111 54 111 0 149 11 177 52 21 29 21 107 0 136 -31 45 -62 52 -230 52 l-156 0 36 -40 c20 -22 36 -44 36 -48 0 -13 -23 -32 -39 -32 -18 0 -161 139 -161 156 0 16 145 154 162 154 8 0 19 -5 26 -12z"/>
+          </g>
+          </svg>
+      </a>
+    </footer>
+
+    <div class="modal fade" id="timepickerModal" tabindex="-1" aria-labelledby="timepickerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-timepicker"></div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

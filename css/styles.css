@@ -364,7 +364,6 @@ ul {
   top: 1px;
 }
 .product-description {
-  /* height: 675px; */
   padding-left: 5px;
 }
 .product-description::-webkit-scrollbar {
@@ -458,9 +457,13 @@ ul {
   position: relative;
   top: 3px;
 }
+.option-variant-list > li .form-check-label > span {
+  font-weight: normal;
+}
 .option-variant-list > li .form-check-label .label-description {
   font-size: 32px;
   color: #808080;
+  font-weight: normal;
 }
 .option-variant-list > li .variant-price {
   font-size: 42px;
@@ -515,14 +518,16 @@ ul {
 .footer .back-btn:focus svg g {
   fill: #ff0000;
 }
-.footer .add-to-cart-btn {
+.footer .add-to-cart-btn,
+.footer .checkout-btn {
   font-size: 44px;
   font-weight: bold;
   height: 81px;
   line-height: 81px;
   padding: 0 40px;
 }
-.footer .add-to-cart-btn span {
+.footer .add-to-cart-btn span,
+.footer .checkout-btn span {
   white-space: nowrap;
   position: relative;
   top: 2px;
@@ -539,13 +544,15 @@ ul {
   line-height: 81px;
 }
 .amount-counter .btn:focus,
-.footer .add-to-cart-btn:focus {
+.footer .add-to-cart-btn:focus,
+.footer .checkout-btn:focus {
   background: #ff0000;
   border: none;
   box-shadow: none;
 }
 .amount-counter .btn.active,
-.footer .add-to-cart-btn.active {
+.footer .add-to-cart-btn.active,
+.footer .checkout-btn.active {
   box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
   border: none;
 }
@@ -719,4 +726,64 @@ ul {
 .modal-backdrop {
   background-color: #fff!important;
   opacity: 0.7!important;
+}
+
+.cart-section {
+  padding-left: 58px;
+  padding-right: 58px;
+}
+
+.cart-list {
+
+}
+
+.cart-list {
+  /* padding-left: 5px; */
+  padding-right: 100px;
+}
+.cart-list::-webkit-scrollbar {
+  width: 18px;
+  border-radius: 9px;
+  background-color: #c7c7c7;
+}
+
+.cart-list::-webkit-scrollbar-thumb {
+  border-radius: 9px;
+  background-color: #000;
+}
+
+.cart-list .cart-item {
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+.cart-list .cart-item.active {
+  border-color: #000;
+}
+
+.cart-item .item-title {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.cart-item .item-meta {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.cart-item .item-total {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.cart-section .cart-total {
+  font-size: 50px;
+  line-height: 1.2;
+  padding-right: 118px;
+}
+
+.fw-600 {
+  font-weight: 600;
 }
