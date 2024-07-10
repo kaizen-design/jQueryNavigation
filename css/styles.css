@@ -397,6 +397,11 @@ ul {
   line-height: 1.2;
   font-weight: normal;
 }
+.option-item .option-description {
+  font-size: 32px;
+  color: #808080;
+  font-weight: normal;
+}
 .option-item .option-badge {
   font-size: 36px;
   font-weight: 500;
@@ -613,7 +618,7 @@ ul {
 /* DATEPICKER MODAL */
 #datepickerModal .modal-dialog,
 #timepickerModal .modal-dialog {
-  max-width: max-content;
+  max-width: 600px;
 }
 #datepickerModal .modal-content,
 #timepickerModal .modal-content {
@@ -623,7 +628,7 @@ ul {
 #timepickerModal .air-datepicker {
   --adp-font-family: TTCommons, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --adp-font-size: 42px;
-  --adp-width: 500px;
+  --adp-width: 600px;
   --adp-z-index: 100;
   --adp-padding: 20px;
   --adp-grid-areas: "nav" "body" "timepicker" "buttons";
@@ -675,10 +680,10 @@ ul {
   --adp-btn-border-radius: var(--adp-border-radius);
   --adp-btn-background-color-hover: var(--adp-background-color-hover);
   --adp-btn-background-color-active: var(--adp-background-color-active);
-  --adp-time-track-height: 1px;
+  --adp-time-track-height: 3px;
   --adp-time-track-color: #dedede;
   --adp-time-track-color-hover: #b1b1b1;
-  --adp-time-thumb-size: 12px;
+  --adp-time-thumb-size: 24px;
   --adp-time-padding-inner: 10px;
   --adp-time-day-period-color: #000;
   --adp-mobile-font-size: 16px;
@@ -703,14 +708,34 @@ ul {
 #timepickerModal .air-datepicker-time--current-hours, 
 #timepickerModal .air-datepicker-time--current-minutes,
 #timepickerModal .air-datepicker-time--current {
-  font-size: 32px;
+  font-size: 50px;
 }
 
-#timepickerModal .air-datepicker--buttons {
+#timepickerModal .air-datepicker--time {
+  padding-top: 32px;
+}
+#timepickerModal .air-datepicker-time--row {
+  height: 32px!important;
+}
+#timepickerModal .air-datepicker-time--row:first-child {
+  margin-bottom: 20px!important;
+}
+#timepickerModal .air-datepicker-time--row input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px!important;
+  width: 24px!important;
+}
+
+#timepickerModal .air-datepicker--buttons,
+#timepickerModal .air-datepicker-buttons {
   padding: 0;
   display: flex;
   flex-direction: column;
-  font-size: 24px;
+  font-size: 32px;
+}
+
+#timepickerModal .air-datepicker-button {
+  display: flex;
 }
 
 #timepickerModal .-only-timepicker- .air-datepicker-time {

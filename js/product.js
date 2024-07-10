@@ -88,6 +88,7 @@ const APP = {
         isMobile: true,
         timepicker: true,
         onlyTimepicker: true,
+        selectedDates: [today],
         timeFormat: 'HH:mm',
         buttons: [button]
       });
@@ -95,6 +96,12 @@ const APP = {
       $hours = document.querySelector('#timepickerModal input[name="hours"]');
       $minutes = document.querySelector('#timepickerModal input[name="minutes"]');
       $selectTimeBtn = document.querySelector('#timepickerModal .air-datepicker-button');
+
+      $clock.selectDate(new Date(null, null, null, parseInt($hours.value), parseInt($minutes.value)), {
+        updateTime: true
+      });
+
+      $timepickerInput.value = formatTime($hours.value) + ':' + formatTime($minutes.value);
     }
 
     if ($timepickerModalEl) {
@@ -259,7 +266,7 @@ const APP = {
               }
               break;
             case 32: //Space button
-              e.preventDefault();
+              //e.preventDefault();
               if ($datepickerInput && $productOptions[activeOption].classList.contains('date-picker')) {
                 $datepickerModal.show();
               }
