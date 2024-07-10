@@ -621,7 +621,8 @@ ul {
   max-width: 600px;
 }
 #datepickerModal .modal-content,
-#timepickerModal .modal-content {
+#timepickerModal .modal-content,
+#messageModal .modal-content {
   box-shadow: 0 0 40px 0 rgba(0,0,0,0.5);
 }
 #datepickerModal .air-datepicker,
@@ -847,4 +848,37 @@ ul {
 
 .fw-600 {
   font-weight: 600;
+}
+
+#messageModal .modal-dialog {
+  max-width: 800px;
+}
+
+#messageModal .modal-dialog .modal-content {
+  border-radius: 32px;
+}
+
+#messageModal .modal-title {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+#messageModal .modal-text {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #808080;
+}
+#messageModal .btn {
+  font-size: 44px;
+  font-weight: bold;
+  height: 81px;
+  line-height: 81px;
+  padding: 0 40px;
+  min-width: 250px;
+}
+#messageModal .btn span {
+  white-space: nowrap;
+  position: relative;
+  top: 2px;
 }

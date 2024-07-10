@@ -43,6 +43,10 @@ const APP = {
                 $orderList.scrollTop = 0
               }
               break;
+            case 13: //OK button
+              e.preventDefault();
+              openMessageModal($orderItems[activeIndex]); // TODO: remove this
+              break;
           }
         });
 
