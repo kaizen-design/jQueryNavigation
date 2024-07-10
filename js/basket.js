@@ -27,6 +27,9 @@ const APP = {
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $cartItems[activeIndex].classList.add('active');
                 $cartItems[activeIndex].focus();
+                if ($cartItems[activeIndex].getBoundingClientRect().top > $cartList.offsetHeight) {
+                  $cartList.scrollTop += 500
+                }
               } else {
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $checkoutBtn.focus();
@@ -41,8 +44,12 @@ const APP = {
                 $cartItems.forEach(($el) => $el.classList.remove('active'));
                 $cartItems[activeIndex].classList.add('active');
                 $cartItems[activeIndex].focus();
+                if ($cartItems[activeIndex].getBoundingClientRect().top < $cartList.offsetHeight / 2) {
+                  $cartList.scrollTop -= 500
+                }
               } else {
                 $cartItems[activeIndex].focus();
+                $cartList.scrollTop = 0
               }
               $minusBtn.classList.remove('focus');
               $plusBtn.classList.remove('focus');
