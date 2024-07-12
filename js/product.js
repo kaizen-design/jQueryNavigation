@@ -602,5 +602,5 @@ if (
 }
 
 function formatTime(val) {
-  return val > 0 && val < 10 ? '0' + val : val;
+  return val >= 0 && val < 10 ? '0' + val : val;
 }

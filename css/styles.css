@@ -66,7 +66,7 @@ ul {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #ff0000;
+  background: #000;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   font-size: 25px;
   position: absolute;
@@ -76,7 +76,7 @@ ul {
 }
 .header .basket:hover .basket-counter,
 .header .basket:focus .basket-counter {
-  background: #000;
+  background: #ff0000;
 }
 .header .basket .basket-counter span {
   position: relative;
