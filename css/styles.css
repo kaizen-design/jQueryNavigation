@@ -830,7 +830,7 @@ ul {
   font-size: 36px;
   font-weight: 500;
   color: #fff;
-  background: #808080;
+  background: #808080!important;
   padding: 4px 26px;
   border-radius: 26px;
   line-height: 1.2;
@@ -839,6 +839,34 @@ ul {
   position: relative;
   top: 4px;
 }
+.order-item .item-actions {
+  width: 200px;
+}
+.order-item .item-action-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #000;
+  transition: all 0.25s ease-in-out;
+}
+.order-item .item-action-btn:hover,
+.order-item .item-action-btn:focus {
+  background: #ff0000;
+  box-shadow: 0 0 0 0.25rem rgba(0,0,0,.25);
+}
+.order-item .item-action-btn svg {
+  width: 44px;
+}
+.order-item .item-action-btn.disabled {
+  background: #808080!important;
+}
+
+.order-item .item-details-list li {
+  padding-right: 200px;
+  font-size: 50px;
+  line-height: 1.2;
+}
+.order-item .item-details-list 
 
 .cart-section .cart-total {
   font-size: 50px;
@@ -846,30 +874,38 @@ ul {
   padding-right: 118px;
 }
 
+.fw-500 {
+  font-weight: 500;
+}
 .fw-600 {
   font-weight: 600;
 }
 
-#messageModal .modal-dialog {
+#messageModal .modal-dialog,
+#deleteOrderModal .modal-dialog {
   max-width: 800px;
 }
 
-#messageModal .modal-dialog .modal-content {
+#messageModal .modal-dialog .modal-content,
+#deleteOrderModal .modal-dialog .modal-content {
   border-radius: 32px;
 }
 
-#messageModal .modal-title {
+#messageModal .modal-title,
+#deleteOrderModal .modal-title {
   font-size: 50px;
   font-weight: 600;
   line-height: 1.2;
 }
-#messageModal .modal-text {
+#messageModal .modal-text,
+#deleteOrderModal .modal-text {
   font-size: 36px;
   font-weight: 400;
   line-height: 1.2;
   color: #808080;
 }
-#messageModal .btn {
+#messageModal .btn,
+#deleteOrderModal .btn {
   font-size: 44px;
   font-weight: bold;
   height: 81px;
@@ -877,7 +913,8 @@ ul {
   padding: 0 40px;
   min-width: 250px;
 }
-#messageModal .btn span {
+#messageModal .btn span,
+#deleteOrderModal .btn span {
   white-space: nowrap;
   position: relative;
   top: 2px;
