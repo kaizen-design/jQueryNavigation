@@ -65,10 +65,7 @@ const APP = {
                 $itemDetailsList.classList.remove('d-none');
                 if (activeIndex === $orderItems.length - 1) {
                   $orderList.scrollTop += 10000
-                } else {
-                  console.log($orderItems[activeIndex].getBoundingClientRect().top)
-                  $orderList.scrollTop = $orderItems[activeIndex].getBoundingClientRect().top;
-                }
+                } 
               } else {
                 $itemDetailsList.classList.add('d-none');
               }
